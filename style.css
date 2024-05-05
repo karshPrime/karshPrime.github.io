@@ -26,7 +26,7 @@ p {
 }
 
 a {
-    color: #FF0000; 
+    color: #FF0000; /* Red links */
     text-decoration: underline;
 }
 
@@ -37,4 +37,15 @@ a:hover {
 .back-button {
     display: block;
     margin-bottom: 20px;
+}
+
+.navbar {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    text-align: center; /* Center align the navbar */
+}
+
+.navbar li {
+    display: inline;
+    margin: 0 10px; /* Adjust spacing between links */
 }
