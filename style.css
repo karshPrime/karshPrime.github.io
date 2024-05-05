@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 854px;
     margin: 50px auto;
     padding: 0 20px;
 }
@@ -26,7 +26,7 @@ p {
 }
 
 a {
-    color: #FF0000; /* Red links */
+    color: #9400D3;
     text-decoration: underline;
 }
 
@@ -40,12 +40,12 @@ a:hover {
 }
 
 .navbar {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none;
     padding: 0;
-    text-align: center; /* Center align the navbar */
+    text-align: center;
 }
 
 .navbar li {
     display: inline;
-    margin: 0 10px; /* Adjust spacing between links */
+    margin: 0 10px;
 }
