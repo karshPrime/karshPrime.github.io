@@ -1,14 +1,14 @@
 
 body {
-    background-color: black;
-    color: #F9F300;
+    background-color: #000000;
+    color: #DDFFDD;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 854px;
+    max-width: 850px;
     margin: 50px auto;
     padding: 0 20px;
 }
@@ -17,6 +17,7 @@ h1 {
     font-size: 36px;
     text-align: center;
     margin-bottom: 30px;
+    color: #FFFFFF;
 }
 
 p {
@@ -26,12 +27,12 @@ p {
 }
 
 a {
-    color: #9400D3;
-    text-decoration: underline;
+    color: #F81B3F;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+    color: #F9F300;
 }
 
 .back-button {
