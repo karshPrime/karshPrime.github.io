@@ -60,3 +60,19 @@ a:hover {
 }
 
 
+/*-- Custom Scrollbar: Chrome ----------------------*/
+
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 6px;
+    border: 1px solid #F81B3F;
+}
+
