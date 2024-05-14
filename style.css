@@ -35,7 +35,7 @@ a:hover {
 /*-- Classes and ID --------------------------------*/
 
 .container {
-    max-width: 850px;
+    max-width: 855px;
     margin: 50px auto;
     padding: 0 20px;
 }
@@ -45,6 +45,20 @@ a:hover {
     margin-bottom: 20px;
 }
 
+
+/*-- Side Image ------------------------------------*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1%;
+    height: 100vh;
+    background-image: url('media/sidebar.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1000;
+}
 
 /*-- Navigation Bar --------------------------------*/
 
@@ -60,7 +74,7 @@ a:hover {
 }
 
 
-/*-- Custom Scrollbar: Chrome ----------------------*/
+/*-- Custom Scrollbar: Chrome & Safari -------------*/
 
 body::-webkit-scrollbar {
     width: 2px;
