@@ -45,6 +45,9 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.dollar {
+    color: #F9F300;
+}
 
 /*-- Side Image ------------------------------------*/
 
@@ -88,5 +91,18 @@ body::-webkit-scrollbar-thumb {
     background-color: #000000;
     border-radius: 6px;
     border: 1px solid #F81B3F;
+}
+
+/*-- Blinking underscore ---------------------------*/
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.blinking-underscore {
+    animation: blink 1s infinite;
+    color: #F81B3F;
 }
 
