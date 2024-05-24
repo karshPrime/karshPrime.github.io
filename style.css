@@ -110,3 +110,29 @@ body::-webkit-scrollbar-thumb {
     color: #F81B3F;
 }
 
+
+/*-- Alerts ----------------------------------------*/
+
+.alert {
+    display: block;
+    text-align: center;
+    animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+    25% {
+        color: white;
+    }
+    50% {
+        color: yellow;
+    }
+    75% {
+        color: blue;
+    }
+    100% {
+        color: red;
+    }
+}
