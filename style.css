@@ -62,9 +62,15 @@ a:hover {
 
 /* for phones */
 @media only screen and (max-width: 767px) {
-  .sidebar {
-    width: 3%;
-  }
+    .sidebar {
+        width: 1.5%;
+        left: 0;
+        background-position: left top;
+        transform: rotate(90deg);
+        transform-origin: top;
+        margin: 0.5% 100%;
+        z-index: 1000;
+    }
 }
 
 /*-- Navigation Bar --------------------------------*/
