@@ -40,7 +40,7 @@ a:hover {
 	padding: 0 20px;
 }
 
-.container img {
+.container img, video {
 	width: 100%;
 	margin-bottom: 3%;
 	border-radius: 12px;
