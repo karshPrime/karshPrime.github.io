@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-	color: #16A085;
+	color: #FFA500;
 }
 
 
@@ -145,7 +145,7 @@ body::-webkit-scrollbar-thumb {
 
 .blinking-underscore {
 	animation: blink 1s infinite;
-	color: #F39C12;
+	color: #1ABC9C;
 }
 
 
@@ -187,6 +187,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-btn:hover {
-	border-color: #16A085;
+	border-color: #FFA500;
 }
 
