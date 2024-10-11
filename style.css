@@ -68,10 +68,9 @@ a:hover {
 	width: 15%;
 }
 
-#pgp {
+.monospace {
     font-family: 'Anonymous Pro', monospace;
     font-size: 16px;
-    background-color: #eeeeee;
     padding: 10px 20px;
     color: #505050;
 }
