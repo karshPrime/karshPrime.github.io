@@ -1,63 +1,155 @@
-/*-- Generic Tags ----------------------------------*/
+
+/*-- Overrides --------------------------------------*/
 
 body {
-	background-color: #FFFFFF;
-	color: #000000;
+	background-color: #1C1C1E;
+	color: #FFFFFF;
     font-family: "Red Hat Display", sans-serif;
 	margin: 0;
 	padding: 0;
 }
 
-h1 {
-	font-size: 36px;
-	text-align: center;
-	margin-bottom: 30px;
-	color: #000000;
-}
-
-p {
-	font-size: 18px;
-	line-height: 1.6;
-	margin-bottom: 20px;
+br {
+    display: block;
+    content: "";
+    margin-top: 0;
 }
 
 a {
-	color: #1ABC9C;
-	text-decoration: none;
+    color: #BCC6CC;
+    text-decoration: none;
 }
 
 a:hover {
-	color: #FFA500;
+    color: #E63946;
+    text-decoration: none;
 }
 
 
-/*-- Classes and ID --------------------------------*/
+/*-- Index.html Specifics --------------------------*/
 
-.container {
-	max-width: 855px;
-	margin: 50px auto;
-	padding: 0 20px;
+.index-body {
+	background-color: #FFFFFF;
+	color: #1C1C1E;
 }
 
-.container img, video {
-	width: 100%;
-	margin-bottom: 1%;
-	border-radius: 12px;
-	border: 1px solid #000000;
+.index-head {
+    padding: 10% 45% 15% 15%;
 }
 
-.back-button {
-	display: block;
-	margin-bottom: 20px;
+.index-passage {
+    background-color: #1C1C1E;
+    color: #FFFFFF;
+    padding: 3% 5% 0;
+    top:0;
+}
+
+
+/*-- General Classes --------------------------------*/
+
+.head {
+    background-color: #FFFFFF;
+    color: #1C1C1E;
+    top:0;
+    padding: 5% 45% 5% 15%;
+}
+
+.monospace {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #F5F5F5;
+      line-height: 1.5;
+
 }
 
 .code {
-	/* font-family: "JetBrains Mono", monospace; */
 	font-family: 'Anonymous Pro', monospace;
 	font-size: 15px;
-	color: #505050;
-	background-color: #eeeeee;
+	color: #BCC6CC;
+	background-color: #121212;
 	padding: 3px 7px;
+}
+
+.navigator {
+    padding: 2% 2% 0;
+}
+
+
+/*-- Passage ----------------------------------------*/
+
+.passage {
+    padding: 1% 30% 5% 15%;
+}
+
+.passage h2 {
+    margin-top: 5%;
+}
+
+.passage img {
+	width: 93%;
+    border-left: 30px solid #FFFFFF;
+    border-top: 5px solid #FFFFFF;
+    border-right: 5px solid #FFFFFF;
+    border-bottom: 5px solid #FFFFFF;
+}
+
+.passage video {
+    width: 100%;
+}
+
+.passage a {
+    color: #E63946
+}
+
+.passage a:hover {
+    color: #FFD700;
+}
+
+
+/*-- Buttons / Boxes --------------------------------*/
+
+.link-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	list-style: none;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+#link-highlight {
+	border: 1px dotted #FFD700;
+	padding: 10px 50px;
+	text-align: center;
+}
+
+#link-highlight:hover {
+    border: 1px outset #39E7F3;
+}
+
+.link-box {
+	border: 1px dotted #BCC6CC;
+	padding: 10px 50px;
+	text-align: center;
+}
+
+.link-box:hover {
+    border: 1px outset #39E7F3;
+}
+
+
+/*-- Images -----------------------------------------*/
+
+.border-image {
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-position: center;
+    padding: 0;
+    border: 0;
+    margin-bottom: -1%;
 }
 
 .img404 {
@@ -68,88 +160,8 @@ a:hover {
 	width: 15%;
 }
 
-.monospace {
-    font-family: 'Anonymous Pro', monospace;
-    font-size: 16px;
-    padding: 10px 20px;
-    color: #505050;
-}
 
-
-/*-- Side Image ------------------------------------*/
-
-.sidebar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 1%;
-	height: 100vh;
-	background-image: url('media/sidebar.png');
-	background-size: cover;
-	background-position: center;
-	z-index: 1000;
-}
-
-/* for phones */
-@media only screen and (max-width: 767px) {
-	.sidebar {
-		width: 1.5%;
-		left: 0;
-		background-position: left top;
-		transform: rotate(90deg);
-		transform-origin: top;
-		margin: 0.5% 100%;
-		z-index: 1000;
-	}
-}
-
-
-/*-- Navigation Bar --------------------------------*/
-
-.navbar {
-	list-style-type: none;
-	padding: 0;
-	text-align: center;
-}
-
-.navbar li {
-	display: inline;
-	margin: 0 10px;
-}
-
-
-/*-- Custom Scrollbar: Chrome & Safari -------------*/
-
-body::-webkit-scrollbar {
-	width: 15px;
-}
-
-body::-webkit-scrollbar-track {
-	background: #FFFFFF;
-}
-
-body::-webkit-scrollbar-thumb {
-	background-color: #F9F9F9;
-	border-radius: 6px;
-	border: 1px solid #1ABC9C;
-}
-
-
-/*-- Blinking underscore ---------------------------*/
-
-@keyframes blink {
-	0% { opacity: 0; }
-	50% { opacity: 1; }
-	100% { opacity: 0; }
-}
-
-.blinking-underscore {
-	animation: blink 1s infinite;
-	color: #1ABC9C;
-}
-
-
-/*-- Alerts ----------------------------------------*/
+/*-- Alerts -----------------------------------------*/
 
 .alert {
 	display: block;
@@ -163,30 +175,5 @@ body::-webkit-scrollbar-thumb {
 	50%  { color: yellow; }
 	75%  { color: blue;   }
 	100% { color: red;    }
-}
-
-
-/*-- Boxes -----------------------------------------*/
-
-.external-links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	list-style: none;
-	padding: 0;
-	justify-content: center;
-	align-items: center;
-}
-
-.link-btn {
-	border: 1px solid #1ABC9C;
-	padding: 10px 27px;
-	width: 150px;
-	text-align: center;
-	color: red;
-}
-
-.link-btn:hover {
-	border-color: #FFA500;
 }
 
