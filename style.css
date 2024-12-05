@@ -26,15 +26,19 @@ a:hover {
 }
 
 
-/*-- Index.html Specifics --------------------------*/
+/*-- Index.html Specifics ---------------------------*/
 
 .index-body {
 	background-color: #FFFFFF;
 	color: #1C1C1E;
 }
 
+.index-head a { 
+    color: #E63946;
+}
+
 .index-head {
-    padding: 10% 45% 15% 15%;
+    padding: 10% 45% 20% 15%;
 }
 
 .index-passage {
@@ -72,7 +76,7 @@ a:hover {
 }
 
 .navigator {
-    padding: 2% 2% 0;
+    padding: 2% 5% 0;
 }
 
 
@@ -149,7 +153,14 @@ a:hover {
 	background-position: center;
     padding: 0;
     border: 0;
+}
+
+.img-top {
     margin-bottom: -1%;
+}
+
+.img-bottom {
+    margin-bottom: 1%;
 }
 
 .img404 {
@@ -175,5 +186,26 @@ a:hover {
 	50%  { color: yellow; }
 	75%  { color: blue;   }
 	100% { color: red;    }
+}
+
+
+/*-- Phone Screen Adjust ----------------------------*/
+
+@media only screen and (max-width: 800px) {
+    .index-head {
+        padding: 15% 5% 40% 5%;
+    }
+
+    .head {
+        padding: 5%;
+    }
+    .passage {
+        padding: 5%;
+    }
+
+    .navigator {
+        padding: 2% 0 0 5%;
+    }
+
 }
 
