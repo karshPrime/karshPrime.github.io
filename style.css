@@ -171,6 +171,25 @@ a:hover {
 	width: 15%;
 }
 
+.spinning-image {
+    position: absolute;
+    top: -50%;
+    left: 10%;
+    width: 80%;
+    opacity: 0.03;
+    z-index: -1;
+    animation: spin 250s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    100% {
+        transform: rotate(360deg) translate(0, 0);
+    }
+}
+
 
 /*-- Alerts -----------------------------------------*/
 
@@ -207,5 +226,10 @@ a:hover {
         padding: 2% 0 0 5%;
     }
 
+    .spinning-image {
+        top: 7%;
+        left: 0;
+        width: 100%;
+    }
 }
 
