@@ -124,8 +124,9 @@ a:hover {
 }
 
 .passage img {
-    width: 93%;
-    border: 5px 5px 5px 30px solid var(--bg-color);
+    width: 95%;
+    border: 5px solid var(--light-bg);
+    border-left: 30px solid var(--light-bg);
 }
 
 .passage video {
