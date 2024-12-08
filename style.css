@@ -1,12 +1,38 @@
 
+:root {
+    --palette1: #1C1C1E;
+    --palette2: #FFFFFF;
+    --palette3: #FFD700;
+    --palette4: #E63946;
+    --palette5: #BCC6CC;
+    --palette6: #F5F5F5;
+
+    --monospace       : var(--palette6);
+    --highlight       : var(--palette3);
+    --passage-link    : var(--palette4);
+
+    --light-bg        : var(--palette2);
+    --light-text      : var(--palette1);
+    --light-link      : var(--palette4);
+    --light-link-h    : var(--palette5);
+
+    --dark-bg         : var(--palette1);
+    --dark-text       : var(--palette2);
+    --dark-link       : var(--palette5);
+    --dark-link-h     : var(--palette4);
+
+    --code-bg         : var(--palette6);
+    --code-text       : var(--palette1);
+}
+
 /*-- Overrides --------------------------------------*/
 
 body {
-	background-color: #1C1C1E;
-	color: #FFFFFF;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
     font-family: "Red Hat Display", sans-serif;
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 br {
@@ -16,12 +42,12 @@ br {
 }
 
 a {
-    color: #BCC6CC;
+    color: var(--dark-link);
     text-decoration: none;
 }
 
 a:hover {
-    color: #E63946;
+    color: var(--dark-link-h);
     text-decoration: none;
 }
 
@@ -29,12 +55,16 @@ a:hover {
 /*-- Index.html Specifics ---------------------------*/
 
 .index-body {
-	background-color: #FFFFFF;
-	color: #1C1C1E;
+    background-color: var(--light-bg);
+    color: var(--light-text);
 }
 
-.index-head a { 
-    color: #E63946;
+.index-head a {
+    color: var(--light-link);
+}
+
+.index-head a:hover {
+    color: var(--light-link-h);
 }
 
 .index-head {
@@ -42,8 +72,8 @@ a:hover {
 }
 
 .index-passage {
-    background-color: #1C1C1E;
-    color: #FFFFFF;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
     padding: 3% 5% 0;
     top:0;
 }
@@ -52,8 +82,8 @@ a:hover {
 /*-- General Classes --------------------------------*/
 
 .head {
-    background-color: #FFFFFF;
-    color: #1C1C1E;
+    background-color: var(--light-bg);
+    color: var(--light-text);
     top:0;
     padding: 5% 45% 5% 15%;
 }
@@ -62,21 +92,24 @@ a:hover {
     font-family: 'Anonymous Pro', monospace;
     font-size: 16px;
     padding: 10px 20px;
-    color: #F5F5F5;
-      line-height: 1.5;
-
+    color: var(--monospace);
+    line-height: 1.5;
 }
 
 .code {
-	font-family: 'Anonymous Pro', monospace;
-	font-size: 15px;
-	color: #BCC6CC;
-	background-color: #121212;
-	padding: 3px 7px;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 15px;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    padding: 3px 7px;
 }
 
 .navigator {
     padding: 2% 5% 0;
+}
+
+.pgp {
+    word-wrap: break-word;
 }
 
 
@@ -91,11 +124,8 @@ a:hover {
 }
 
 .passage img {
-	width: 93%;
-    border-left: 30px solid #FFFFFF;
-    border-top: 5px solid #FFFFFF;
-    border-right: 5px solid #FFFFFF;
-    border-bottom: 5px solid #FFFFFF;
+    width: 93%;
+    border: 5px 5px 5px 30px solid var(--bg-color);
 }
 
 .passage video {
@@ -103,72 +133,72 @@ a:hover {
 }
 
 .passage a {
-    color: #E63946
+    color: var(--passage-link);
 }
 
 .passage a:hover {
-    color: #FFD700;
+    color: var(--highlight);
 }
 
 
 /*-- Buttons / Boxes --------------------------------*/
 
 .link-boxes {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	list-style: none;
-	padding: 0;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 
 #link-highlight {
-	border: 1px dotted #FFD700;
-	padding: 10px 50px;
-	text-align: center;
+    border: 1px dotted var(--highlight);
+    padding: 10px 50px;
+    text-align: center;
 }
 
 #link-highlight:hover {
-    border: 1px outset #39E7F3;
+    border: 1px outset var(--dark-link-h);
 }
 
 .link-box {
-	border: 1px dotted #BCC6CC;
-	padding: 10px 50px;
-	text-align: center;
+    border: 1px dotted var(--dark-link);
+    padding: 10px 50px;
+    text-align: center;
 }
 
 .link-box:hover {
-    border: 1px outset #39E7F3;
+    border: 1px outset var(--dark-link-h);
 }
 
 
 /*-- Images -----------------------------------------*/
 
 .border-image {
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-position: center;
     padding: 0;
     border: 0;
 }
 
 .img-top {
-    margin-bottom: -1%;
+    margin-bottom: -10px;
 }
 
 .img-bottom {
-    margin-bottom: 1%;
+    margin-bottom: 1px;
 }
 
 .img404 {
-	padding: 10% 0% 2% 0%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 15%;
+    padding: 10% 0% 2% 0%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
 }
 
 .spinning-image {
@@ -194,17 +224,17 @@ a:hover {
 /*-- Alerts -----------------------------------------*/
 
 .alert {
-	display: block;
-	text-align: center;
-	animation: colorChange 3s infinite;
+    display: block;
+    text-align: center;
+    animation: colorChange 3s infinite;
 }
 
 @keyframes colorChange {
-	0%   { color: red;    }
-	25%  { color: black;  }
-	50%  { color: yellow; }
-	75%  { color: blue;   }
-	100% { color: red;    }
+    0%   { color: red;    }
+    25%  { color: black;  }
+    50%  { color: yellow; }
+    75%  { color: blue;   }
+    100% { color: red;    }
 }
 
 
