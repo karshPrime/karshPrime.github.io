@@ -7,22 +7,21 @@
     --palette5: #BCC6CC;
     --palette6: #F5F5F5;
 
-    --monospace       : var(--palette6);
-    --highlight       : var(--palette3);
-    --passage-link    : var(--palette4);
+    --monospace        : var(--palette6);
+    --highlight        : var(--palette3);
 
-    --light-bg        : var(--palette2);
-    --light-text      : var(--palette1);
-    --light-link      : var(--palette4);
-    --light-link-h    : var(--palette5);
+    --light-bg         : var(--palette2);
+    --light-text       : var(--palette1);
+    --light-link       : var(--palette4);
+    --light-link-h     : var(--palette5);
 
-    --dark-bg         : var(--palette1);
-    --dark-text       : var(--palette2);
-    --dark-link       : var(--palette5);
-    --dark-link-h     : var(--palette4);
+    --dark-bg          : var(--palette1);
+    --dark-text        : var(--palette2);
+    --dark-link        : var(--palette5);
+    --dark-link-h      : var(--palette4);
 
-    --code-bg         : var(--palette6);
-    --code-text       : var(--palette1);
+    --code-bg          : var(--palette6);
+    --code-text        : var(--palette1);
 }
 
 /*-- Overrides --------------------------------------*/
@@ -49,6 +48,10 @@ a {
 a:hover {
     color: var(--dark-link-h);
     text-decoration: none;
+}
+
+img {
+    width: 100%;
 }
 
 
@@ -79,6 +82,17 @@ a:hover {
 }
 
 
+/*-- AxiomSync.html Specifics------------------------*/
+
+.AxS-head {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 40%;
+    z-index: -1;
+}
+
+
 /*-- General Classes --------------------------------*/
 
 .head {
@@ -86,6 +100,11 @@ a:hover {
     color: var(--light-text);
     top:0;
     padding: 5% 45% 5% 15%;
+}
+
+.head img {
+    margin-left: 40%;
+    margin-right: 0;
 }
 
 .monospace {
@@ -134,7 +153,7 @@ a:hover {
 }
 
 .passage a {
-    color: var(--passage-link);
+    color: var(--light-link);
 }
 
 .passage a:hover {
@@ -187,11 +206,11 @@ a:hover {
 }
 
 .img-top {
-    margin-bottom: -10px;
+    margin-bottom: -2%;
 }
 
 .img-bottom {
-    margin-bottom: 1px;
+    margin-bottom: 1%;
 }
 
 .img404 {
@@ -213,12 +232,8 @@ a:hover {
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg) translate(0, 0);
-    }
-    100% {
-        transform: rotate(360deg) translate(0, 0);
-    }
+    0%   { transform: rotate(0deg)   translate(0, 0); }
+    100% { transform: rotate(360deg) translate(0, 0); }
 }
 
 
@@ -265,6 +280,10 @@ a:hover {
 
     .phone-patch {
         margin-bottom: 10px;
+    }
+
+    .AxS-head {
+        visibility: hidden;
     }
 }
 
