@@ -131,6 +131,14 @@ img {
     word-wrap: break-word;
 }
 
+.github-stats {
+    position: absolute;
+    right: 10%;
+    width: 30%;
+    top: 122px;
+    z-index: 2;
+}
+
 
 /*-- Passage ----------------------------------------*/
 
@@ -276,8 +284,9 @@ img {
         margin-bottom: 10px;
     }
 
-    .AxS-head {
+    .AxS-head, .github-stats {
         visibility: hidden;
     }
+
 }
 
