@@ -177,6 +177,9 @@ img {
     gap: 10px;
     list-style: none;
     padding: 0;
+}
+
+.link-boxes-center {
     justify-content: center;
     align-items: center;
 }
