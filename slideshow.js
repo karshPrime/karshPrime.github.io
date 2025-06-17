@@ -7,11 +7,16 @@ document.addEventListener( "DOMContentLoaded", () => {
         const slides = slideshow.querySelectorAll( ".slide" );
         let current = 0;
 
-        setInterval( () => {
+        function showNextSlide() {
             slides[current].classList.remove( "active" );
             current = ( current + 1 ) % slides.length;
             slides[current].classList.add( "active" );
-        }, 2500);
+
+            const randomDelay = 2500 + Math.random() * 500;
+            setTimeout(showNextSlide, randomDelay);
+        }
+
+        setTimeout(showNextSlide, 2000);
     });
 });
 
