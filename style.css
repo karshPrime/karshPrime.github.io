@@ -152,8 +152,6 @@ img {
 
 .passage img {
     width: 95%;
-    border: 5px solid var(--light-bg);
-    border-left: 30px solid var(--light-bg);
 }
 
 .passage video {
@@ -250,6 +248,7 @@ img {
     overflow: hidden;
     margin: 20px 0;
     border: 5px solid var(--light-bg);
+    border-left: 30px solid var(--light-bg);
 }
 
 .pasage-slideshow .slide {
