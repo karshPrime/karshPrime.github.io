@@ -89,7 +89,7 @@ const Index = () => {
                 rheometer device. A detailed summary of my work can be found in
                 this{" "}
                 <a
-                  href="./attachments/Completion_letter_Haemograph.pdf"
+                  href="src/assets/Completion_letter_Haemograph.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home-link text-accent"
