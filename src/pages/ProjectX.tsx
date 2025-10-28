@@ -62,13 +62,6 @@ const RosellaInc = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-6xl mx-auto py-12">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Home</span>
-            </Button>
-          </Link>
-
           <div className="mb-16 animate-fade-in-up text-center">
             <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
               Currently in Development
