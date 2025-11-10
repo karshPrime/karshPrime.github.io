@@ -19,7 +19,7 @@ const Index = () => {
       description: "Engagement & Impact",
     },
     {
-      title: "Rosella",
+      title: "RedWren",
       path: "/projectx",
       icon: Bird,
       description: "Current Focus",

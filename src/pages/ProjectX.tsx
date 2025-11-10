@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const RosellaInc = () => {
+const RedWren = () => {
   const milestones = [
     {
       phase: "Research & Planning",
@@ -67,7 +67,7 @@ const RosellaInc = () => {
               Currently in Development
             </div>
             <h1 className="text-5xl md:text-7xl font-serif mb-6 glow-text">
-              Rosella
+              RedWren
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               <p>Automation by humans and robots working as one.</p>
@@ -150,7 +150,7 @@ const RosellaInc = () => {
           <div className="card-elegant rounded-lg p-8 animate-fade-in-up">
             <h2 className="text-2xl font-serif mb-6">Technology Stack</h2>
             <div className="flex flex-wrap gap-3">
-              {["C", "C++", "Go", "Python", "n8n", "ESP-IDF"].map((tech) => (
+              {["C", "C++", "Go", "Python", "n8n", "STM32", "QT"].map((tech) => (
                 <span
                   key={tech}
                   className="px-4 py-2 rounded-lg bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-colors duration-300 cursor-default"
@@ -163,7 +163,7 @@ const RosellaInc = () => {
 
           <div className="mt-16 text-center">
             <a
-              href="https://github.com/RosellaInc"
+              href="https://github.com/redwren"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -182,4 +182,4 @@ const RosellaInc = () => {
   );
 };
 
-export default RosellaInc;
+export default RedWren;
