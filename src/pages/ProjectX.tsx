@@ -173,7 +173,7 @@ const RedWren = () => {
               </Button>
             </a>
             <p className="text-sm text-muted-foreground mt-4">
-              (All repositories are currently set to private)
+              (Most repositories are currently set to private)
             </p>
           </div>
         </div>
