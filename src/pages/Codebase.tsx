@@ -11,6 +11,20 @@ const Codebase = () => {
           name: "Hobby",
           projects: [
             {
+              name: "RedWren - Gesture Tracker",
+              description:
+                "Tool to visualise serial read and record gestures for RedWren development.",
+              tech: ["RedWren", "Python", "PySlide", "QT", "pandas", "scipy", "numpy"],
+              link: "https://github.com/redwren/GestureTracker",
+            },
+            {
+              name: "Outfit Generator",
+              description:
+                "Pick right outfit for the occasion",
+              tech: ["Python" ],
+              link: "https://github.com/karshosphere/outfit-generator",
+            },
+            {
               name: "gun",
               description:
                 "Tool to unify build, run, and test commands across multiple programming languages.",
