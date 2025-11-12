@@ -20,7 +20,7 @@ const Index = () => {
     },
     {
       title: "RedWren",
-      path: "/projectx",
+      path: "/redwren",
       icon: Bird,
       description: "Current Focus",
     },
