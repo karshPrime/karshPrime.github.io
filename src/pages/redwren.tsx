@@ -21,7 +21,7 @@ const RedWren = () => {
       phase: "Core Development",
       status: "In Progress",
       date: "Q1 2026",
-      progress: 5,
+      progress: 30,
     },
     {
       phase: "Beta Testing",
