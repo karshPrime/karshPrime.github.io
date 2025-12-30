@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code2, Users, BookOpen, Terminal, Bird } from "lucide-react";
+import { Code2, Users, BookOpen, Terminal, BrainCircuit } from "lucide-react";
 
 import pdfHaemograph from "../assets/Completion_letter_Haemograph.pdf";
 
@@ -19,9 +19,9 @@ const Index = () => {
       description: "Engagement & Impact",
     },
     {
-      title: "RedWren",
-      path: "/redwren",
-      icon: Bird,
+      title: "OpenNetics",
+      path: "https://github.com/OpenNetics",
+      icon: BrainCircuit,
       description: "Current Focus",
     },
     {

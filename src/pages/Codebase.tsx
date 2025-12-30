@@ -11,11 +11,11 @@ const Codebase = () => {
           name: "Hobby",
           projects: [
             {
-              name: "RedWren - Gesture Tracker",
+              name: "OpenNetics - Gesture Tracker",
               description:
-                "Tool to visualise serial read and record gestures for RedWren development.",
-              tech: ["RedWren", "Python", "PySlide", "QT", "pandas", "scipy", "numpy"],
-              link: "https://github.com/redwren/GestureTracker",
+                "Tool to visualise serial read and record gestures for OpenNetics development.",
+              tech: ["OpenNetics", "Python", "PySlide", "QT", "pandas", "scipy", "numpy"],
+              link: "https://github.com/OpenNetics/Gesture-Tracker",
             },
             {
               name: "Outfit Generator",
