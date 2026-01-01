@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Not Found</title>
-    <meta http-equiv="refresh" content="0; URL=./" />
-  </head>
-
-  <body>
+    <meta charset="utf-8" />
     <script>
-      const redirectTo = window.location.pathname;
-      window.location.replace(redirectTo);
+      const path = window.location.pathname;
+      window.location.replace("/#" + path);
     </script>
-  </body>
+  </head>
 </html>
