@@ -1,175 +1,170 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Code2, Users, BookOpen, Terminal, BrainCircuit } from "lucide-react";
+import { useState, useEffect } from "react";
 
-import pdfHaemograph from "../assets/Completion_letter_Haemograph.pdf";
+const personalItems = [
+  { name: "PGP_key/", description: "secure communication", to: "/pgp" },
+  { name: "community/", description: "engagement & impact", to: "/community" },
+  { name: "journal/", description: "thoughts & writings", to: "/journal" },
+];
 
-const Index = () => {
-  const navButtons = [
-    {
-      title: "Codebase",
-      path: "/codebase",
-      icon: Code2,
-      description: "Projects & Development",
-    },
-    {
-      title: "Community",
-      path: "/community",
-      icon: Users,
-      description: "Engagement & Impact",
-    },
-    {
-      title: "OpenNetics",
-      path: "https://github.com/OpenNetics",
-      icon: BrainCircuit,
-      description: "Current Focus",
-    },
-    {
-      title: "Journal",
-      path: "/journal",
-      icon: BookOpen,
-      description: "Thoughts & Writings",
-    },
-    {
-      title: "Dotfiles",
-      path: "/dotfiles",
-      icon: Terminal,
-      description: "System Configuration",
-    },
-  ];
+const workItems = [
+  { name: "codebase/", description: "projects & development", to: "/codebase" },
+  { name: "dotfiles/", description: "system configurations", to: "/dotfiles" },
+  { name: "opennetics/", description: "current focus", to: "/opennetics" },
+];
+
+const profileItems = [
+  {
+    name: "email",
+    description: "direct contact",
+    to: "mailto:karshmail@icloud.com",
+  },
+  {
+    name: "github*",
+    description: "code repositories",
+    to: "http://github.com/karshPrime",
+  },
+  {
+    name: "linkedIn*",
+    description: "professional profile",
+    to: "https://linkedin.com",
+  },
+];
+
+const TerminalHeading = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const fullText = "Karsh Ranjan";
+
+  useEffect(() => {
+    let index = 0;
+    const typeInterval = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, 80);
+
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 530);
+
+    return () => {
+      clearInterval(typeInterval);
+      clearInterval(cursorInterval);
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen tech-grid">
-      <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6 pt-[10%]">
-        <div className="max-w-6xl w-full mx-auto">
-          <div className="mb-24 text-left">
-            <h1 className="text-5xl md:text-6xl font-serif mb-8">
-              Karsh Ranjan
-            </h1>
-            <div className="text-sm md:text-base text-foreground max-w-4xl leading-relaxed pr-[5%]">
-              <p>
-                Innovator who looks at the world through the lens of
-                engineering. Motivated by purpose, I was awarded the "Innovator
-                Impact" award at{" "}
-                <a
-                  href="https://www.babson.edu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  Babson College
-                </a>
-                , and I was offered an officer role in the U.S. Marine Corps.
-              </p>
-              <br />
-              <p>
-                Disciplined, I am preparing for a 100 km ultra-marathon, and I
-                received the Vice-Chancellor Excellence Scholarship at{" "}
-                <a
-                  href="https://www.swinburne.edu.au/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  Swinburne University of Technology
-                </a>
-                , from where I graduated with Distinction in Engineering
-                Honours.
-              </p>
-              <br />
-              <p>
-                Previously, I worked for a{" "}
-                <a
-                  href="http://haemograph.com.au"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  biotech startup
-                </a>{" "}
-                based in Melbourne, where I wrote the firmware for the patented
-                rheometer device. A detailed summary of my work can be found in
-                this{" "}
-                <a
-                  href={pdfHaemograph}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  letter of completion.
-                </a>{" "}
-                This experience sharpened my low-level development skills and
-                familiarised me with the{" "}
-                <a
-                  href="https://www.espressif.com/en/products/socs/esp32"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  ESP32 platform
-                </a>
-                .
-              </p>
-              <br />
-              <p>
-                <a
-                  href="https://github.com/karshPrime"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  Github
-                </a>{" "}
-                &nbsp; | &nbsp;
-                <a
-                  href="https://linkedin.com/in/karshPrime"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-link text-accent"
-                >
-                  LinkedIn
-                </a>{" "}
-                &nbsp; | &nbsp;
-                <a
-                  href="mailto:utkarsh_ranjan@protonmail.com"
-                  className="home-link text-accent"
-                >
-                  Email
-                </a>{" "}
-                &nbsp; | &nbsp;
-                <Link to="/pgp" className="home-link text-accent">
-                  PGP Key
-                </Link>
-              </p>
-            </div>
-          </div>
+    <div className="font-mono">
+      <span className="text-primary/60">$</span>
+      <span className="text-primary/60 ml-2">whoami</span>
+      <div className="mt-2">
+        <span className="text-primary text-3xl md:text-5xl font-bold tracking-tight">
+          {displayText}
+        </span>
+        <span
+          className={`text-primary text-3xl md:text-5xl ${
+            showCursor ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          _
+        </span>
+      </div>
+    </div>
+  );
+};
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-full">
-            {navButtons.map((button, index) => {
-              const Icon = button.icon;
-              return (
-                <Link
-                  key={button.path}
-                  to={button.path}
-                  className="block group animate-slide-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="card-elegant rounded-lg p-6 h-full flex flex-col items-start gap-3">
-                    <Icon className="w-6 h-6 text-accent group-hover:animate-glow-pulse" />
-                    <div>
-                      <h3 className="text-lg font-serif mb-1 group-hover:text-accent transition-colors duration-300">
-                        {button.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {button.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+const FileTree = () => {
+  const renderSection = (command: string, items: typeof personalItems) => (
+    <div className="mb-6">
+      <div className="text-muted-foreground mb-2">
+        <span className="text-primary/60">$</span>
+        <span className="text-primary/60 ml-2">{command}</span>
+      </div>
+      <div className="pl-2 space-y-1">
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          const prefix = isLast ? "└──" : "├──";
+
+          return (
+            <Link
+              key={item.name}
+              to={item.to}
+              className="group flex items-start gap-2 hover:text-primary transition-colors"
+            >
+              <span className="text-primary/40">{prefix}</span>
+              <span className="text-primary group-hover:text-primary/80">
+                {item.name}
+              </span>
+              <span className="text-muted-foreground text-xs mt-0.5 hidden sm:inline">
+                {item.description}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="font-mono text-sm">
+      {renderSection("ls ~/Personal_Archive", personalItems)}
+      {renderSection("ls ~/Creative_Dashboard", workItems)}
+      {renderSection("ls ~/Digital_Footprints", profileItems)}
+    </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Scan line effect */}
+      <div className="pointer-events-none fixed inset-0 z-50">
+        <div className="absolute w-full h-px bg-primary/20 animate-scan-line" />
+      </div>
+
+      {/* Corner decorations */}
+      <div className="fixed top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
+      <div className="fixed top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/30" />
+      <div className="fixed bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
+      <div className="fixed bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
+
+      <div className="container mx-auto px-[20%] py-16 md:py-24 max-w-none relative z-10">
+        {/* Header */}
+        <header className="mb-12">
+          <TerminalHeading />
+          <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
+            Portfolio websites are like neckties, a formal wear accessory that
+            can't be kept too formal. A colourful, patterned tie is what gives
+            the outfit personality; in contrast, a black tie on every occasion
+            makes you appear way too formal than you may intend. Same's the case
+            with this site. It is a space for me to organise who I am in one
+            systematic order. Here, it's more than just the text that speaks for
+            me; the choice of font (and font colour), the site's HTML/CSS and
+            the theme itself, how I break my life into different files, and how
+            I group them together with other instances of my life.
+          </p>
+          <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
+            This website is me. The language used here is mine. I had a blank
+            canvas to paint on; this is my work.
+          </p>
+        </header>
+
+        {/* File Tree Navigation */}
+        <nav className="mb-16">
+          <FileTree />
+        </nav>
+
+        {/* Footer */}
+        <footer className="pt-6 border-t border-border/20">
+          <div className="flex items-center justify-between text-muted-foreground text-xs font-mono">
+            <span>[https://karsh.me]</span>
+            <span className="text-primary/40">◈ ENCRYPTED ◈</span>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   );
