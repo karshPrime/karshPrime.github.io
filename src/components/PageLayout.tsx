@@ -21,8 +21,8 @@ const PageLayout = ({ title, children }: PageLayoutProps) => {
       <div className="fixed bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
 
       <div className="container mx-auto px-6 py-16 max-w-4xl">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

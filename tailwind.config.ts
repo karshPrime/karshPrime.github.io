@@ -74,10 +74,10 @@ export default {
           "56%": { opacity: "1" },
         },
         "pulse-glow": {
-          "0%, 100%": { 
+          "0%, 100%": {
             boxShadow: "0 0 5px hsl(var(--primary) / 0.3)",
           },
-          "50%": { 
+          "50%": {
             boxShadow: "0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.4)",
           },
         },
