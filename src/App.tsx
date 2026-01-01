@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Index from "./pages/Index";
+import Background from "./pages/Background";
 import Codebase from "./pages/Codebase";
 import Community from "./pages/Community";
 import Opennetics from "./pages/Opennetics";
@@ -23,8 +24,10 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/background" element={<Background />} />
           <Route path="/codebase" element={<Codebase />} />
           <Route path="/community" element={<Community />} />
           <Route path="/opennetics" element={<Opennetics />} />

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const personalItems = [
+  { name: "about_me/", description: "summary & background", to: "/background" },
   { name: "PGP_key/", description: "secure communication", to: "/pgp" },
   { name: "community/", description: "engagement & impact", to: "/community" },
   { name: "journal/", description: "thoughts & writings", to: "/journal" },
@@ -18,16 +19,19 @@ const profileItems = [
     name: "email",
     description: "direct contact",
     to: "mailto:karshmail@icloud.com",
+    external: false,
   },
   {
     name: "github*",
     description: "code repositories",
     to: "http://github.com/karshPrime",
+    external: true,
   },
   {
     name: "linkedIn*",
     description: "professional profile",
-    to: "https://linkedin.com",
+    to: "https://linkedin.com/in/karshPrime",
+    external: true,
   },
 ];
 
@@ -78,7 +82,10 @@ const TerminalHeading = () => {
 };
 
 const FileTree = () => {
-  const renderSection = (command: string, items: typeof personalItems) => (
+  const renderSection = (
+    command: string,
+    items: typeof personalItems | typeof profileItems
+  ) => (
     <div className="mb-6">
       <div className="text-muted-foreground mb-2">
         <span className="text-primary/60">$</span>
@@ -88,6 +95,27 @@ const FileTree = () => {
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           const prefix = isLast ? "└──" : "├──";
+          const isExternal = "external" in item && item.external;
+
+          if (isExternal || item.to.startsWith("mailto:")) {
+            return (
+              <a
+                key={item.name}
+                href={item.to}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className="group flex items-start gap-2 hover:text-primary transition-colors"
+              >
+                <span className="text-primary/40">{prefix}</span>
+                <span className="text-primary group-hover:text-primary/80">
+                  {item.name}
+                </span>
+                <span className="text-muted-foreground text-xs mt-0.5 hidden sm:inline">
+                  {item.description}
+                </span>
+              </a>
+            );
+          }
 
           return (
             <Link
@@ -132,7 +160,7 @@ const Index = () => {
       <div className="fixed bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
       <div className="fixed bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
 
-      <div className="container mx-auto px-[20%] py-16 md:py-24 max-w-none relative z-10">
+      <div className="container mx-auto px-6 py-16 md:py-24 max-w-4xl relative z-10">
         {/* Header */}
         <header className="mb-12">
           <TerminalHeading />
