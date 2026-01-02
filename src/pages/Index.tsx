@@ -165,19 +165,14 @@ const Index = () => {
         <header className="mb-12">
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Portfolio websites are like neckties, a formal wear accessory that
-            can't be kept too formal. A colourful, patterned tie is what gives
-            the outfit personality; in contrast, a black tie on every occasion
-            makes you appear way too formal than you may intend. Same's the case
-            with this site. It is a space for me to organise who I am in one
-            systematic order. Here, it's more than just the text that speaks for
-            me; the choice of font (and font colour), the site's HTML/CSS and
-            the theme itself, how I break my life into different files, and how
-            I group them together with other instances of my life.
+            Portfolio websites are like unique neckties - an accessory that reflects your personality.
+            Just as a colorful tie adds character to an outfit, this site reveals my essence
+            beyond formalism. It’s a carefully crafted space where I organise my identity.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            This website is me. The language used here is mine. I had a blank
-            canvas to paint on; this is my work.
+            Here, every choice matters: from the font styles and colours to the way I structure my
+            experiences. It’s not just about words; it's about how I present different aspects of my
+            life in a visually cohesive way.
           </p>
         </header>
 
