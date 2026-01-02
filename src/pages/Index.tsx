@@ -10,8 +10,8 @@ const personalItems = [
 
 const workItems = [
   { name: "codebase/", description: "projects & development", to: "/codebase" },
-  { name: "dotfiles/", description: "system configurations", to: "/dotfiles" },
   { name: "opennetics/", description: "current focus", to: "/opennetics" },
+  { name: "dotfiles/", description: "system configurations", to: "/dotfiles" },
 ];
 
 const profileItems = [
@@ -149,16 +149,12 @@ const FileTree = () => {
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Scan line effect */}
-      <div className="pointer-events-none fixed inset-0 z-50">
-        <div className="absolute w-full h-px bg-primary/20 animate-scan-line" />
-      </div>
+      {/* Background glitch flicker effect */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-primary/[0.02] animate-glitch-bg" />
 
-      {/* Corner decorations */}
-      <div className="fixed top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
-      <div className="fixed top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/30" />
-      <div className="fixed bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
-      <div className="fixed bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
+      {/* Corner decorations - scroll with content */}
+      <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
+      <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/30" />
 
       <div className="container mx-auto px-6 py-16 md:py-24 max-w-4xl relative z-10">
         {/* Header */}
@@ -166,7 +162,7 @@ const Index = () => {
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
             Portfolio websites are like unique neckties - an accessory that reflects your personality.
-            Just as a colorful tie adds character to an outfit, this site reveals my essence
+            Just as a colourful tie adds character to an outfit, this site reveals my essence
             beyond formalism. It’s a carefully crafted space where I organise my identity.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
@@ -189,6 +185,10 @@ const Index = () => {
           </div>
         </footer>
       </div>
+
+      {/* Bottom corner decorations */}
+      <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
+      <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
     </div>
   );
 };

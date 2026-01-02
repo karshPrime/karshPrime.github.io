@@ -81,17 +81,13 @@ export default {
             boxShadow: "0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.4)",
           },
         },
-        "scan-line": {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(100vh)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         flicker: "flicker 3s infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
-        "scan-line": "scan-line 8s linear infinite",
+        "glitch-bg": "glitch-bg 5s ease-in-out infinite",
       },
     },
   },

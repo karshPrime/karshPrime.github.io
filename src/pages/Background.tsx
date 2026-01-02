@@ -16,7 +16,7 @@ const timelineEvents = [
   {
     year: "July - September, 2025",
     title: "Grad School",
-    description: "Started and withdrew from Babson College, Boston, USA",
+    description: "Started and withdrew from Babson College, Boston, USA.",
   },
   {
     year: "July, 2025",
@@ -45,13 +45,13 @@ const timelineEvents = [
     year: "August - November 2023",
     title: "In2Science Mentor Volunteer",
     description:
-      "Volunteered as a Math mentor at Weststall Secondary School. Finalist for Best Communicator Award.",
+      "Volunteered as a Math mentor at Weststall Secondary School. Finalist for Best Communicator.",
   },
   {
     year: "August - November 2022",
     title: "In2Science Mentor Volunteer",
     description:
-      "Volunteered as a Math mentor Auburn High School. Nominated for Best Mentor Award.",
+      "Volunteered as a Math mentor Auburn High School. Nominated for Best Mentor.",
   },
 ];
 

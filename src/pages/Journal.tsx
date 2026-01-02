@@ -16,7 +16,7 @@ const journalEntries: JournalEntry[] = [
     heading: "Withdrawing frm Grad School",
     date: "August 31, 2025",
     description:
-      "About my decision to withdraw from Babson College and build myself as a professional engineer and entrepreneur.",
+      "About my decision to withdraw from Babson College and build myself as a professionally.",
     tags: ["Drop Out", "Entrepreneurship"],
     slug: "/journal/heist-aftermath",
   },
