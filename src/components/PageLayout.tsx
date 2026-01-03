@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import MatrixRain from "@/components/MatrixRain";
 
 interface PageLayoutProps {
   title: string;
@@ -9,8 +10,8 @@ interface PageLayoutProps {
 const PageLayout = ({ title, children }: PageLayoutProps) => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background glitch flicker effect */}
-      <div className="pointer-events-none fixed inset-0 z-0 bg-primary/[0.02] animate-glitch-bg" />
+      {/* Matrix rain effect */}
+      <MatrixRain />
 
       {/* Corner decorations - scroll with content */}
       <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
