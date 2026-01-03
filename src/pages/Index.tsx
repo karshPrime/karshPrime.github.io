@@ -162,14 +162,16 @@ const Index = () => {
         <header className="mb-12">
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Portfolio websites are like unique neckties - an accessory that reflects your personality.
-            Just as a colourful tie adds character to an outfit, this site reveals my essence
-            beyond formalism. It’s a carefully crafted space where I organise my identity.
+          Futurist. Idealistic. Inspired by Mike Pondsmith's work in the Cyberpunk universe, I
+          envision an open world filled with limitless cyber-capabilities.<i>"More power to the
+          people, to the users,"</i> is at the core of everything I build, including this website,
+          hosted on a public GitHub repository.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Here, every choice matters: from the font styles and colours to the way I structure my
-            experiences. It’s not just about words; it's about how I present different aspects of my
-            life in a visually cohesive way.
+          This is my corner of the internet - my personal canvas. Here, there are no drag-and-drop
+          limitations or character counts/content restrictions; everything is crafted to reflect who
+          I am. From the content to the site’s UI and theme, each element speaks to my identity and
+          vision.
           </p>
         </header>
 
