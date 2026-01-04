@@ -81,10 +81,10 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Volume Slider Container - Vertical, above button */}
+        {/* Volume Slider Container - Vertical, above button, hidden on mobile */}
         <div
           className={`
-            overflow-hidden transition-all duration-300 ease-out
+            hidden sm:block overflow-hidden transition-all duration-300 ease-out
             ${isHovered ? 'h-24 opacity-100' : 'h-0 opacity-0'}
           `}
         >
