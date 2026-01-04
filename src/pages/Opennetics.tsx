@@ -26,8 +26,8 @@ const Projectx = () => {
           assets allocated. Automation by humans and robots working as one.
         </p>
 
-        <div className="border border-primary/20 p-6 bg-card/50">
-          <pre className="text-primary/70 text-sm">
+        <div className="border border-primary/20 p-6 bg-card/50 overflow-x-auto">
+          <pre className="text-primary/70 text-sm whitespace-pre">
             {`// Status report...
 > Classification : Protected
 > Phase          : In Progress

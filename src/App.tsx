@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
+import AudioPlayer from "./components/AudioPlayer";
 import Index from "./pages/Index";
 import Background from "./pages/Background";
 import Codebase from "./pages/Codebase";
@@ -16,6 +17,7 @@ import JournalEntry2 from "./pages/JournalEntry2";
 import Dotfiles from "./pages/Dotfiles";
 import PGP from "./pages/PGP";
 import NotFound from "./pages/NotFound";
+import backgroundMusic from "./assets/audio/background-music.mp3";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AudioPlayer src={backgroundMusic} />
       <HashRouter>
         <ScrollToTop />
         <Routes>

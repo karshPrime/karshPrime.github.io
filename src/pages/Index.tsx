@@ -111,7 +111,7 @@ const FileTree = () => {
                 <span className="text-primary group-hover:text-primary/80">
                   {item.name}
                 </span>
-                <span className="text-muted-foreground text-xs mt-0.5 hidden sm:inline">
+                <span className="text-muted-foreground text-xs mt-0.5">
                   {item.description}
                 </span>
               </a>
@@ -128,7 +128,7 @@ const FileTree = () => {
               <span className="text-primary group-hover:text-primary/80">
                 {item.name}
               </span>
-              <span className="text-muted-foreground text-xs mt-0.5 hidden sm:inline">
+              <span className="text-muted-foreground text-xs mt-0.5">
                 {item.description}
               </span>
             </Link>
@@ -189,9 +189,8 @@ const Index = () => {
         </footer>
       </div>
 
-      {/* Bottom corner decorations */}
+      {/* Bottom corner decoration */}
       <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
-      <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
     </div>
   );
 };

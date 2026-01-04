@@ -28,8 +28,8 @@ const Dotfiles = () => {
     <PageLayout title="dotfiles">
       <div className="space-y-8">
         {/* Config files */}
-        <div className="border border-primary/20 p-6 bg-card/50">
-          <pre className="text-primary/70 text-sm">
+        <div className="border border-primary/20 p-6 bg-card/50 overflow-x-auto">
+          <pre className="text-primary/70 text-sm whitespace-pre">
             {`// Hardware Peripherals
 > Portable Console : MacBook Pro M3 Pro
 > Edge Module      : Debian @ RaspberryPi 3B+
