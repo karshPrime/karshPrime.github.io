@@ -36,6 +36,30 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
     };
   }, []);
 
+  // Pause when tab/app loses focus, resume when it regains focus
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (isPlaying) {
+          audio.pause();
+        }
+      } else {
+        if (isPlaying) {
+          audio.play().catch(() => {});
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
   const togglePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
