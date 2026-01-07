@@ -13,9 +13,7 @@ const CyberBox = ({ heading, description, to }: CyberBoxProps) => {
         <h4 className="text-primary font-display text-lg uppercase tracking-wider mb-2">
           {heading}
         </h4>
-        <p className="text-foreground/60 font-mono text-sm">
-          {description}
-        </p>
+        <p className="text-foreground/60 font-mono text-sm">{description}</p>
       </div>
     </Link>
   );

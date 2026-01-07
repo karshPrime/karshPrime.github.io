@@ -21,11 +21,14 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
 
     // Auto-play on first user interaction
     const handleFirstInteraction = () => {
-      audio.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        // Autoplay blocked, user needs to click
-      });
+      audio
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Autoplay blocked, user needs to click
+        });
       document.removeEventListener("click", handleFirstInteraction);
     };
 
@@ -89,11 +92,17 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
 
   const getVolumeIcon = () => {
     if (volume === 0 || !isPlaying) {
-      return <VolumeX className="w-5 h-5 text-primary/70 group-hover:text-primary transition-colors relative z-10" />;
+      return (
+        <VolumeX className="w-5 h-5 text-primary/70 group-hover:text-primary transition-colors relative z-10" />
+      );
     } else if (volume < 0.5) {
-      return <Volume1 className="w-5 h-5 text-primary group-hover:text-primary transition-colors relative z-10 animate-pulse" />;
+      return (
+        <Volume1 className="w-5 h-5 text-primary group-hover:text-primary transition-colors relative z-10 animate-pulse" />
+      );
     } else {
-      return <Volume2 className="w-5 h-5 text-primary group-hover:text-primary transition-colors relative z-10 animate-pulse" />;
+      return (
+        <Volume2 className="w-5 h-5 text-primary group-hover:text-primary transition-colors relative z-10 animate-pulse" />
+      );
     }
   };
 
@@ -109,7 +118,7 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
         <div
           className={`
             hidden sm:block overflow-hidden transition-all duration-300 ease-out
-            ${isHovered ? 'h-24 opacity-100' : 'h-0 opacity-0'}
+            ${isHovered ? "h-24 opacity-100" : "h-0 opacity-0"}
           `}
         >
           <div className="relative w-10 h-24 flex items-center justify-center py-3 border border-primary/50 bg-background/90 backdrop-blur-sm">
@@ -149,7 +158,11 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
                 [&::-moz-range-thumb]:shadow-[0_0_8px_hsl(var(--primary)/0.6)]
               "
               style={{
-                background: `linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--primary)) ${volume * 100}%, hsl(var(--primary) / 0.2) ${volume * 100}%, hsl(var(--primary) / 0.2) 100%)`
+                background: `linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--primary)) ${
+                  volume * 100
+                }%, hsl(var(--primary) / 0.2) ${
+                  volume * 100
+                }%, hsl(var(--primary) / 0.2) 100%)`,
               }}
             />
           </div>

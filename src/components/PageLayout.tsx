@@ -23,7 +23,9 @@ const PageLayout = ({ title, children }: PageLayoutProps) => {
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-mono text-sm uppercase tracking-wider">back to main</span>
+          <span className="font-mono text-sm uppercase tracking-wider">
+            back to main
+          </span>
         </Link>
 
         <header className="mb-12">

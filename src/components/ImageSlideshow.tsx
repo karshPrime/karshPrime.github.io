@@ -58,7 +58,10 @@ const ImageSlideshow = ({ images, interval = 4000 }: ImageSlideshowProps) => {
             className={`w-2 h-2 transition-colors ${
               index === currentIndex ? "bg-primary" : "bg-primary/30"
             }`}
-            style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}
+            style={{
+              clipPath:
+                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+            }}
           />
         ))}
       </div>

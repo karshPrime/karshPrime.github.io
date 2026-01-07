@@ -9,7 +9,8 @@ interface Stream {
   opacity: number;
 }
 
-const CHARS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()ЯШЫИПЮЪЩДФГЧЛЖБΔΨμλΩ";
+const CHARS =
+  "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()ЯШЫИПЮЪЩДФГЧЛЖБΔΨμλΩ";
 
 const getRandomChar = () => CHARS[Math.floor(Math.random() * CHARS.length)];
 
@@ -17,20 +18,23 @@ const generateStream = (id: number): Stream => ({
   id,
   x: Math.random() * 100,
   y: -24 + Math.random() * 16,
-  chars: Array.from({ length: 16 + Math.floor(Math.random() * 8) }, getRandomChar).join(""),
+  chars: Array.from(
+    { length: 16 + Math.floor(Math.random() * 8) },
+    getRandomChar
+  ).join(""),
   speed: 0.3 + Math.random() * 0.4,
   opacity: 0.2 + Math.random() * 0.12,
 });
 
 const MatrixRain = () => {
   const [streams, setStreams] = useState<Stream[]>([]);
+  const streamIdRef = { current: 0 };
 
   useEffect(() => {
     // Initialize with a few streams
     const initial = Array.from({ length: 4 }, (_, i) => generateStream(i));
     setStreams(initial);
-
-    let streamId = initial.length;
+    streamIdRef.current = initial.length;
 
     // Add new streams periodically from random positions
     const spawnInterval = setInterval(() => {
@@ -38,9 +42,9 @@ const MatrixRain = () => {
         // Remove streams that have fallen off screen
         const filtered = prev.filter((s) => s.y < 120);
 
-        // Add a new stream if we have less than 8
+        // Add a new stream if we have less than 16
         if (filtered.length < 16) {
-          return [...filtered, generateStream(streamId++)];
+          return [...filtered, generateStream(streamIdRef.current++)];
         }
         return filtered;
       });
@@ -65,6 +69,32 @@ const MatrixRain = () => {
       clearInterval(spawnInterval);
       clearInterval(animateInterval);
     };
+  }, []);
+
+  // Handle click to spawn new stream at mouse position
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+
+      setStreams((prev) => [
+        ...prev,
+        {
+          id: streamIdRef.current++,
+          x,
+          y,
+          chars: Array.from(
+            { length: 16 + Math.floor(Math.random() * 8) },
+            getRandomChar
+          ).join(""),
+          speed: 0.3 + Math.random() * 0.4,
+          opacity: 0.3 + Math.random() * 0.15,
+        },
+      ]);
+    };
+
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   return (
