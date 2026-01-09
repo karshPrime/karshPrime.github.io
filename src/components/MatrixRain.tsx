@@ -1,122 +1,123 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface Stream {
+type Phase = "in" | "visible" | "out";
+interface TextLine {
   id: number;
   x: number;
   y: number;
   chars: string;
-  speed: number;
   opacity: number;
+  phase: Phase;
 }
 
-const CHARS =
-  "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()ЯШЫИПЮЪЩДФГЧЛЖБΔΨμλΩ";
+const CHARS = Array.from(
+  "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*{}ЯШЫИЪЩДФГЧЛЖБΔΨμλ"
+);
+const CHARS_LEN = CHARS.length;
 
-const getRandomChar = () => CHARS[Math.floor(Math.random() * CHARS.length)];
+const rand = (n: number) => Math.floor(Math.random() * n);
+const randFloat = () => Math.random();
 
-const generateStream = (id: number): Stream => ({
+const getRandomChar = () => CHARS[rand(CHARS_LEN)];
+const getRandomX = () => {
+  const y = randFloat();
+  if (y < 0.4) return 80 + rand(20);
+  if (y < 0.8) return rand(16);
+  return 20 + rand(60);
+};
+const makeChars = (len: number) => {
+  const arr = new Array(len);
+  for (let i = 0; i < len; i++) arr[i] = getRandomChar();
+  return arr.join("");
+};
+
+const generateLine = (id: number, yRange: [number, number] = [-20, 30]): TextLine => ({
   id,
-  x: Math.random() * 100,
-  y: -24 + Math.random() * 16,
-  chars: Array.from(
-    { length: 16 + Math.floor(Math.random() * 8) },
-    getRandomChar
-  ).join(""),
-  speed: 0.3 + Math.random() * 0.4,
-  opacity: 0.2 + Math.random() * 0.12,
+  x: getRandomX(),
+  y: yRange[0] + randFloat() * (yRange[1] - yRange[0]),
+  chars: makeChars(100 + rand(20)),
+  opacity: randFloat() * -1,
+  phase: "in",
 });
 
-const MatrixRain = () => {
-  const [streams, setStreams] = useState<Stream[]>([]);
-  const streamIdRef = { current: 0 };
+export default function MatrixRain() {
+  const [, setTick] = useState(0); // used only to trigger renders at low freq
+  const linesRef = useRef<TextLine[]>([]);
+  const idRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+  const lastRenderRef = useRef(0);
 
+  // init
   useEffect(() => {
-    // Initialize with a few streams
-    const initial = Array.from({ length: 4 }, (_, i) => generateStream(i));
-    setStreams(initial);
-    streamIdRef.current = initial.length;
+    const initial = new Array(10).fill(0).map(() => generateLine(idRef.current++));
+    linesRef.current = initial;
+    setTick((t) => t + 1);
+  }, []);
 
-    // Add new streams periodically from random positions
-    const spawnInterval = setInterval(() => {
-      setStreams((prev) => {
-        // Remove streams that have fallen off screen
-        const filtered = prev.filter((s) => s.y < 120);
-
-        // Add a new stream if we have less than 16
-        if (filtered.length < 16) {
-          return [...filtered, generateStream(streamIdRef.current++)];
+  // animation using rAF; only mutate refs and occasionally trigger a render (~15 FPS)
+  useEffect(() => {
+    const step = (ts: number) => {
+      const lines = linesRef.current;
+      for (let i = 0; i < lines.length; i++) {
+        const ln = lines[i];
+        if (ln.phase === "in") {
+          ln.opacity = Math.min(ln.opacity + 0.05, 0.35);
+          if (ln.opacity >= 0.15) ln.phase = "visible";
+        } else if (ln.phase === "visible") {
+          if (Math.random() >= 0.99) ln.phase = "out";
+        } else {
+          ln.opacity = ln.opacity - 0.001;
+          if (ln.opacity <= 0) {
+            lines[i] = generateLine(ln.id);
+            continue;
+          }
         }
-        return filtered;
-      });
-    }, 1500 + Math.random() * 2000);
 
-    // Animate streams downward
-    const animateInterval = setInterval(() => {
-      setStreams((prev) =>
-        prev.map((stream) => ({
-          ...stream,
-          y: stream.y + stream.speed,
-          // Randomly change some characters
-          chars: stream.chars
-            .split("")
-            .map((c) => (Math.random() > 0.5 ? getRandomChar() : c))
-            .join(""),
-        }))
-      );
-    }, 100);
+        if (Math.random() > 0.7) {
+          // mutate ~30% of lines; mutate only a small slice (5%) of chars to avoid allocations
+          const chars = ln.chars.split("");
+          for (let k = 0; k < chars.length; k++) {
+            if (Math.random() > 0.98) chars[k] = getRandomChar();
+          }
+          ln.chars = chars.join("");
+        }
+      }
 
+      // render at ~15 FPS
+      if (ts - lastRenderRef.current > 66) {
+        lastRenderRef.current = ts;
+        setTick((t) => t + 1);
+      }
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
     return () => {
-      clearInterval(spawnInterval);
-      clearInterval(animateInterval);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  // Handle click to spawn new stream at mouse position
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-
-      setStreams((prev) => [
-        ...prev,
-        {
-          id: streamIdRef.current++,
-          x,
-          y,
-          chars: Array.from(
-            { length: 16 + Math.floor(Math.random() * 8) },
-            getRandomChar
-          ).join(""),
-          speed: 0.3 + Math.random() * 0.4,
-          opacity: 0.3 + Math.random() * 0.15,
-        },
-      ]);
-    };
-
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
-  }, []);
+  const lines = linesRef.current;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {streams.map((stream) => (
+      {lines.map((line) => (
         <div
-          key={stream.id}
-          className="absolute font-mono text-[10px] leading-[1.2] whitespace-pre select-none"
+          key={line.id}
+          className="absolute font-mono text-[10px] leading-[1.2] whitespace-pre select-none transition-opacity duration-300"
           style={{
-            left: `${stream.x}%`,
-            top: `${stream.y}%`,
-            color: `hsl(0 70% 50% / ${stream.opacity})`,
-            textShadow: `0 0 8px hsl(0 80% 45% / ${stream.opacity * 0.6})`,
+            left: `${line.x}%`,
+            top: `${line.y}%`,
+            color: `hsl(0 70% 50% / ${line.opacity})`,
+            textShadow: `0 0 8px hsl(0 80% 45% / ${line.opacity * 0.6})`,
             writingMode: "vertical-rl",
             transform: "rotate(180deg)",
           }}
         >
-          {stream.chars}
+          {line.chars}
         </div>
       ))}
     </div>
   );
-};
+}
 
-export default MatrixRain;
