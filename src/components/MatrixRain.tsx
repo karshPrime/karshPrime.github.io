@@ -47,13 +47,13 @@ const makeChars = (len: number) =>
 const createGroup = (idStart: number): Group => {
   const baseX = getRandomX();
   const groupSize = 3 + rand(4);
-  const baseY = -20 + Math.random() * 70;
+  const baseY = -15 + Math.random() * 70;
 
   const lines: TextLine[] = [];
   for (let i = 0; i < groupSize; i++) {
     lines.push({
       id: idStart + i,
-      chars: makeChars(80 + rand(40)),
+      chars: makeChars(100 + rand(50)),
       xOffset: i * 0.25,
       yOffset: Math.random() * 10 - 20,
     });
@@ -68,10 +68,10 @@ const createGroup = (idStart: number): Group => {
     lines,
 
     visibleFrames: 0,
-    visibleDuration: 180 + rand(240),
-    fadeInSpeed: 0.01 + Math.random() * 0.015,
-    fadeOutSpeed: 0.002 + Math.random() * 0.004,
-    jitterCooldown: 8 + rand(6),
+    visibleDuration: 60 + rand(300),
+    fadeInSpeed: 0.02 + Math.random() * 0.015,
+    fadeOutSpeed: 0.02 + Math.random() * 0.015,
+    jitterCooldown: rand(6),
   };
 };
 
@@ -103,7 +103,7 @@ export default function MatrixRain() {
 
         if (g.phase === "in") {
           g.opacity += g.fadeInSpeed;
-          if (g.opacity >= 0.18) g.phase = "visible";
+          if (g.opacity >= 0.2) g.phase = "visible";
         } else if (g.phase === "visible") {
           g.visibleFrames++;
 
@@ -124,7 +124,7 @@ export default function MatrixRain() {
         }
       }
 
-      if (groups.length < 3 && Math.random() < 0.03) {
+      if (groups.length < 5 && Math.random() < 0.1) {
         const g = createGroup(idRef.current);
         idRef.current += g.lines.length;
         groups.push(g);
@@ -144,7 +144,7 @@ export default function MatrixRain() {
         g.lines.map((line) => (
           <div
             key={`${g.id}-${line.id}`}
-            className="absolute font-mono text-[8px] leading-[1] whitespace-pre select-none"
+            className="absolute font-mono text-[7px] leading-[1] whitespace-pre select-none"
             style={{
               left: `${g.x + line.xOffset}%`,
               top: `${g.baseY + line.yOffset}%`,
