@@ -1,122 +1,163 @@
 import { useEffect, useRef, useState } from "react";
 
 type Phase = "in" | "visible" | "out";
+
 interface TextLine {
   id: number;
+  chars: string[];
+  xOffset: number;
+  yOffset: number;
+}
+
+interface Group {
+  id: number;
   x: number;
-  y: number;
-  chars: string;
+  baseY: number;
   opacity: number;
   phase: Phase;
+  lines: TextLine[];
+
+  visibleFrames: number;
+  visibleDuration: number;
+  fadeInSpeed: number;
+  fadeOutSpeed: number;
+  jitterCooldown: number;
 }
 
 const CHARS = Array.from(
-  "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*{}ЯШЫИЪЩДФГЧЛЖБΔΨμλ"
+  "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ!@#$%^&*{}ЯШЫИЪЩДФГЧЛЖБΔΨμλ"
 );
 const CHARS_LEN = CHARS.length;
-
-const rand = (n: number) => Math.floor(Math.random() * n);
-const randFloat = () => Math.random();
-
+const rand = (n: number) => (Math.random() * n) | 0;
 const getRandomChar = () => CHARS[rand(CHARS_LEN)];
+
+const SIM_FPS = 30;
+const FRAME_TIME = 1000 / SIM_FPS;
+
 const getRandomX = () => {
-  const y = randFloat();
-  if (y < 0.4) return 80 + rand(20);
-  if (y < 0.8) return rand(16);
+  const r = Math.random();
+  if (r < 0.4) return 80 + rand(18);
+  if (r < 0.8) return 1 + rand(16);
   return 20 + rand(60);
 };
-const makeChars = (len: number) => {
-  const arr = new Array(len);
-  for (let i = 0; i < len; i++) arr[i] = getRandomChar();
-  return arr.join("");
+
+const makeChars = (len: number) =>
+  Array.from({ length: len }, getRandomChar);
+
+const createGroup = (idStart: number): Group => {
+  const baseX = getRandomX();
+  const groupSize = 3 + rand(4);
+  const baseY = -20 + Math.random() * 70;
+
+  const lines: TextLine[] = [];
+  for (let i = 0; i < groupSize; i++) {
+    lines.push({
+      id: idStart + i,
+      chars: makeChars(80 + rand(40)),
+      xOffset: i * 0.25,
+      yOffset: Math.random() * 10 - 20,
+    });
+  }
+
+  return {
+    id: idStart,
+    x: baseX,
+    baseY,
+    opacity: -0.15,
+    phase: "in",
+    lines,
+
+    visibleFrames: 0,
+    visibleDuration: 180 + rand(240),
+    fadeInSpeed: 0.01 + Math.random() * 0.015,
+    fadeOutSpeed: 0.002 + Math.random() * 0.004,
+    jitterCooldown: 8 + rand(6),
+  };
 };
 
-const generateLine = (id: number, yRange: [number, number] = [-20, 30]): TextLine => ({
-  id,
-  x: getRandomX(),
-  y: yRange[0] + randFloat() * (yRange[1] - yRange[0]),
-  chars: makeChars(100 + rand(20)),
-  opacity: randFloat() * -1,
-  phase: "in",
-});
-
 export default function MatrixRain() {
-  const [, setTick] = useState(0); // used only to trigger renders at low freq
-  const linesRef = useRef<TextLine[]>([]);
+  const [, forceRender] = useState(0);
+  const groupsRef = useRef<Group[]>([]);
   const idRef = useRef(0);
+  const lastSimRef = useRef(0);
   const rafRef = useRef<number | null>(null);
-  const lastRenderRef = useRef(0);
 
-  // init
   useEffect(() => {
-    const initial = new Array(10).fill(0).map(() => generateLine(idRef.current++));
-    linesRef.current = initial;
-    setTick((t) => t + 1);
+    groupsRef.current = [createGroup(0)];
+    idRef.current = 1000;
+    forceRender((t) => t + 1);
   }, []);
 
-  // animation using rAF; only mutate refs and occasionally trigger a render (~15 FPS)
   useEffect(() => {
     const step = (ts: number) => {
-      const lines = linesRef.current;
-      for (let i = 0; i < lines.length; i++) {
-        const ln = lines[i];
-        if (ln.phase === "in") {
-          ln.opacity = Math.min(ln.opacity + 0.05, 0.35);
-          if (ln.opacity >= 0.15) ln.phase = "visible";
-        } else if (ln.phase === "visible") {
-          if (Math.random() >= 0.99) ln.phase = "out";
+      if (ts - lastSimRef.current < FRAME_TIME) {
+        rafRef.current = requestAnimationFrame(step);
+        return;
+      }
+      lastSimRef.current = ts;
+
+      const groups = groupsRef.current;
+
+      for (let i = groups.length - 1; i >= 0; i--) {
+        const g = groups[i];
+
+        if (g.phase === "in") {
+          g.opacity += g.fadeInSpeed;
+          if (g.opacity >= 0.18) g.phase = "visible";
+        } else if (g.phase === "visible") {
+          g.visibleFrames++;
+
+          if (--g.jitterCooldown <= 0) {
+            g.jitterCooldown = rand(3);
+            for (const ln of g.lines) {
+              const idx = rand(ln.chars.length);
+              ln.chars[idx] = getRandomChar();
+            }
+          }
+
+          if (g.visibleFrames > g.visibleDuration && Math.random() < 0.25) {
+            g.phase = "out";
+          }
         } else {
-          ln.opacity = ln.opacity - 0.001;
-          if (ln.opacity <= 0) {
-            lines[i] = generateLine(ln.id);
-            continue;
-          }
-        }
-
-        if (Math.random() > 0.7) {
-          // mutate ~30% of lines; mutate only a small slice (5%) of chars to avoid allocations
-          const chars = ln.chars.split("");
-          for (let k = 0; k < chars.length; k++) {
-            if (Math.random() > 0.98) chars[k] = getRandomChar();
-          }
-          ln.chars = chars.join("");
+          g.opacity -= g.fadeOutSpeed;
+          if (g.opacity <= 0) groups.splice(i, 1);
         }
       }
 
-      // render at ~15 FPS
-      if (ts - lastRenderRef.current > 66) {
-        lastRenderRef.current = ts;
-        setTick((t) => t + 1);
+      if (groups.length < 3 && Math.random() < 0.03) {
+        const g = createGroup(idRef.current);
+        idRef.current += g.lines.length;
+        groups.push(g);
       }
+
+      forceRender((t) => t + 1);
       rafRef.current = requestAnimationFrame(step);
     };
 
     rafRef.current = requestAnimationFrame(step);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
+    return () => rafRef.current && cancelAnimationFrame(rafRef.current);
   }, []);
-
-  const lines = linesRef.current;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {lines.map((line) => (
-        <div
-          key={line.id}
-          className="absolute font-mono text-[10px] leading-[1.2] whitespace-pre select-none transition-opacity duration-300"
-          style={{
-            left: `${line.x}%`,
-            top: `${line.y}%`,
-            color: `hsl(0 70% 50% / ${line.opacity})`,
-            textShadow: `0 0 8px hsl(0 80% 45% / ${line.opacity * 0.6})`,
-            writingMode: "vertical-rl",
-            transform: "rotate(180deg)",
-          }}
-        >
-          {line.chars}
-        </div>
-      ))}
+      {groupsRef.current.map((g) =>
+        g.lines.map((line) => (
+          <div
+            key={`${g.id}-${line.id}`}
+            className="absolute font-mono text-[8px] leading-[1] whitespace-pre select-none"
+            style={{
+              left: `${g.x + line.xOffset}%`,
+              top: `${g.baseY + line.yOffset}%`,
+              color: `hsl(0 70% 50% / ${Math.max(0, g.opacity)})`,
+              textShadow: `0 0 6px hsl(0 80% 45% / ${g.opacity * 0.5})`,
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+            }}
+          >
+            {line.chars.join("")}
+          </div>
+        ))
+      )}
     </div>
   );
 }
