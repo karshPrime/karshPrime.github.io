@@ -71,7 +71,7 @@ const createGroup = (idStart: number): Group => {
     visibleDuration: 60 + rand(300),
     fadeInSpeed: 0.02 + Math.random() * 0.015,
     fadeOutSpeed: 0.02 + Math.random() * 0.015,
-    jitterCooldown: rand(6),
+    jitterCooldown: rand(3),
   };
 };
 
