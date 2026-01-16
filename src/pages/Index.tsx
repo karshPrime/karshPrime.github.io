@@ -2,17 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MatrixRain from "@/components/MatrixRain";
 
-// Preload images first in their slideshow
-import img1 from "@/assets/me/7232.jpg";
-import img2 from "@/assets/me/7238.jpg";
-import img3 from "@/assets/community/GreekClub/committee1.jpg";
-import img4 from "@/assets/community/GreekClub/IMG_3497.png";
-import img5 from "@/assets/community/In2Science/group.jpg";
-import img6 from "@/assets/community/RoundSquare/DSC_0744.jpg";
-import img7 from "@/assets/opennetics/Logo.png";
-import img8 from "@/assets/opennetics/GestureTracker.png";
-import img9 from "@/assets/opennetics/PipPackage.png";
-
 const personalItems = [
   { name: "about_me/", description: "summary & background", to: "/background" },
   { name: "community/", description: "engagement & impact", to: "/community" },
@@ -180,11 +169,11 @@ const Index = () => {
             on a public GitHub repository.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            This is my corner of the internet - my personal canvas. Here, there
-            are no drag-and-drop limitations or character counts/content
-            restrictions; everything is crafted to reflect who I am. From the
-            content to the site’s UI and theme, each element speaks to my
-            identity and vision.
+            In my corner of the internet: I graduated with a distinction in Engineering Honours, got
+            into America's #1 school for Entrepreneurship, and chose to withdraw to pursue the path
+            of an entrepreneur professionally, with technology at the centre. By day, I work in
+            med-tech, and by night, I dive into my own venture in cybernetics, driven by the vision
+            of creating technology that empowers individualism.
           </p>
         </header>
 
