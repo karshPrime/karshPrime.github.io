@@ -9,9 +9,9 @@ const slideshowImages = [img1, img2];
 const timelineEvents = [
   {
     year: "January, 2025 - Present",
-    title: "Started New Role",
+    title: "Current Role",
     description:
-      "Joined as a graduate software engineer at Capgemini, Melbourne, Australia.",
+      "Joined as a graduate software engineer at Design+Industry, Melbourne, Australia.",
   },
   {
     year: "July - September, 2025",
@@ -39,7 +39,7 @@ const timelineEvents = [
   {
     year: "January - February 2024",
     title: "Engineering Internship",
-    description: "Interned at Yeme Company as a Software Engineer.",
+    description: "Interned at Yeme Company as a Software Engineer. Built the website: www.yeme.com.au",
   },
   {
     year: "August - November 2023",
@@ -109,14 +109,14 @@ const Background = () => {
             Professional Experience
           </h2>
           <p className="text-foreground/80 leading-relaxed">
-            My professional journey includes working for{" "}
+            My professional journey as a firmware engineer started with {" "}
             <a
               href="https://haemograph.com.au/"
               target="_blank"
               rel="noreferrer"
               className="text-primary hover:underline"
             >
-              Haemograph Pyt. Ltd.,
+              Haemograph,
             </a>{" "}
             a biotech startup based in Melbourne, where I wrote the firmware for
             a patented rheometer device. This role sharpened my low-level
@@ -129,8 +129,18 @@ const Background = () => {
             >
               ESP32 platform
             </a>
-            . A detailed summary of my work can be found in my letter of
-            completion.
+            .
+            <br/><br/>
+            Following this, I got a firmware intership at{" "}
+            <a
+              href="https://www.design-industry.com.au"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary hover:underline"
+            >
+              Design+Industry
+           </a>{" "}
+            with Capgemini where I'm currently building myself. 
           </p>
         </section>
 

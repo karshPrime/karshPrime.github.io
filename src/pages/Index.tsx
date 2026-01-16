@@ -169,7 +169,7 @@ const Index = () => {
             on a public GitHub repository.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            In my corner of the internet: I graduated with a distinction in Engineering Honours, got
+            This is my corner of the internet: graduated with a distinction in Engineering Honours, got
             into America's #1 school for Entrepreneurship, and chose to withdraw to pursue the path
             of an entrepreneur professionally, with technology at the centre. By day, I work in
             med-tech, and by night, I dive into my own venture in cybernetics, driven by the vision
