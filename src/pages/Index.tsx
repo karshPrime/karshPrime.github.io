@@ -4,6 +4,11 @@ import MatrixRain from "@/components/MatrixRain";
 
 const personalItems = [
   { name: "about_me/", description: "summary & background", to: "/background" },
+  {
+    name: "certifications/",
+    description: "certificates & licenses",
+    to: "/certifications",
+  },
   { name: "community/", description: "engagement & impact", to: "/community" },
   { name: "journal/", description: "thoughts & writings", to: "/journal" },
 ];

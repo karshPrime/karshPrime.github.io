@@ -11,6 +11,7 @@ import Background from "./pages/Background";
 import Codebase from "./pages/Codebase";
 import Community from "./pages/Community";
 import Opennetics from "./pages/Opennetics";
+import Certifications from "./pages/Certifications";
 import Journal from "./pages/Journal";
 import JournalEntry1 from "./pages/JournalEntry1";
 import JournalEntry2 from "./pages/JournalEntry2";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/codebase" element={<Codebase />} />
           <Route path="/community" element={<Community />} />
           <Route path="/opennetics" element={<Opennetics />} />
+          <Route path="/certifications" element={<Certifications />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/heist-aftermath" element={<JournalEntry1 />} />
           <Route path="/journal/chrome-installation" element={<JournalEntry2 />} />

@@ -517,9 +517,11 @@ const Codebase = () => {
                         </div>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        {posts.map((post) => (
-                          <CodePostCard key={post.heading} post={post} />
-                        ))}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          {posts.map((post) => (
+                            <CodePostCard key={post.heading} post={post} />
+                          ))}
+                        </div>
                       </CollapsibleContent>
                     </Collapsible>
                   );
