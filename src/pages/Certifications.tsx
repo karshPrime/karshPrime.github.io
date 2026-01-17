@@ -93,9 +93,7 @@ const Cirtificates = () => {
     <PageLayout title="cirtificates">
       <div className="space-y-8">
         <p className="text-foreground/70">
-          Repository of tools, scripts, and contributions to the open-source
-          projects. Each line of code written to solve problems in the urban
-          sprawl.
+          Credentials, badges, and licenses earned beyond the classroom — concise markers of experience and practice.
         </p>
 
         {cirtificatesPosts.map((section) => {
