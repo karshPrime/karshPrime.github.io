@@ -5,9 +5,10 @@ import MatrixRain from "@/components/MatrixRain";
 interface PageLayoutProps {
   title: string;
   children: React.ReactNode;
+  wide?: boolean;
 }
 
-const PageLayout = ({ title, children }: PageLayoutProps) => {
+const PageLayout = ({ title, children, wide = false }: PageLayoutProps) => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Matrix rain effect */}
@@ -17,7 +18,7 @@ const PageLayout = ({ title, children }: PageLayoutProps) => {
       <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
       <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary/30" />
 
-      <div className="container mx-auto px-6 py-16 max-w-4xl">
+      <div className={`container mx-auto px-6 py-16 ${wide ? 'max-w-6xl' : 'max-w-4xl'}`}>
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 group"

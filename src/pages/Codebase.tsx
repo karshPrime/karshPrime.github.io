@@ -25,19 +25,20 @@ interface YearSection {
 const codebasePosts: YearSection[] = [
   {
     year: 2026,
-    posts: [],
+    posts: [
+      {
+        category: "hobby",
+        heading: "OpenNetics - Capture_SRM",
+        description:
+          "Tool to visualise serial read and record gestures for OpenNetics development.",
+        tags: ["Python", "PySlide", "QT", "scipy", "numpy"],
+        link: "https://github.com/OpenNetics/Gesture-Tracker",
+      },
+    ],
   },
   {
     year: 2025,
     posts: [
-      {
-        category: "hobby",
-        heading: "OpenNetics - Gesture Tracker",
-        description:
-          "Tool to visualise serial read and record gestures for OpenNetics development.",
-        tags: ["OpenNetics", "Python", "PySlide", "QT", "scipy", "numpy"],
-        link: "https://github.com/OpenNetics/Gesture-Tracker",
-      },
       {
         category: "hobby",
         heading: "Outfit Generator",
@@ -83,7 +84,7 @@ const codebasePosts: YearSection[] = [
         description:
           "Group project for managing independent IoT devices with edge and cloud server integration.",
         tags: ["IoT", "Cloud Computing", "Embedded Systems"],
-        link: "https://github.com/karshPrime/c-vault",
+        link: "https://github.com/karshPrime/SWE30011-GroupProject",
       },
     ],
   },
@@ -369,21 +370,21 @@ const codebasePosts: YearSection[] = [
       {
         category: "academic",
         heading: "CLI Music Player",
-        description: "task description",
+        description: "Simple terminal offline music player in ruby",
         tags: ["Ruby"],
         link: "https://github.com/karshPrime/uni-music_player_cli",
       },
       {
         category: "academic",
         heading: "GUI Music Player",
-        description: "task description",
+        description: "Simple graphical offline music player in ruby",
         tags: ["Ruby", "Gosu"],
         link: "https://github.com/karshPrime/uni-music_player_gui",
       },
       {
         category: "academic",
         heading: "Random Walker",
-        description: "task description",
+        description: "Test randomness of a pseudorandom algorithm",
         tags: ["Ruby", "Gosu"],
         link: "https://github.com/karshPrime/uni-random_walker",
       },
@@ -454,7 +455,7 @@ const Codebase = () => {
   };
 
   return (
-    <PageLayout title="codebase">
+    <PageLayout title="codebase" wide>
       <div className="space-y-8">
         <p className="text-foreground/70">
           Repository of tools, scripts, and contributions to the open-source
@@ -517,7 +518,7 @@ const Codebase = () => {
                         </div>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                           {posts.map((post) => (
                             <CodePostCard key={post.heading} post={post} />
                           ))}

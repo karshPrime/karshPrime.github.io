@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 
-interface CirtificateBox {
+interface CertificateBox {
   heading: string;
   description: string;
   tags: string[];
@@ -16,10 +16,10 @@ interface CirtificateBox {
 
 interface CourseSection {
   course: string;
-  posts: CirtificateBox[];
+  posts: CertificateBox[];
 }
 
-const cirtificatesPosts: CourseSection[] = [
+const certificatesPosts: CourseSection[] = [
   {
     course: "Technical Development",
     posts: [
@@ -59,7 +59,7 @@ const TagBadge = ({ tag }: { tag: string }) => (
   </span>
 );
 
-const CirtificateBoxCard = ({ post }: { post: CirtificateBox }) => (
+const CertificateBoxCard = ({ post }: { post: CertificateBox }) => (
   <a
     href={post.link}
     target="_blank"
@@ -80,9 +80,9 @@ const CirtificateBoxCard = ({ post }: { post: CirtificateBox }) => (
   </a>
 );
 
-const Cirtificates = () => {
+const Certificates = () => {
   const [openCourses, setOpenCourses] = useState<Record<string, boolean>>(
-    Object.fromEntries(cirtificatesPosts.map((s) => [s.course, true]))
+    Object.fromEntries(certificatesPosts.map((s) => [s.course, true]))
   );
 
   const toggleCourse = (course: string) => {
@@ -90,13 +90,13 @@ const Cirtificates = () => {
   };
 
   return (
-    <PageLayout title="cirtificates">
+    <PageLayout title="certificates" wide>
       <div className="space-y-8">
         <p className="text-foreground/70">
           Credentials, badges, and licenses earned beyond the classroom — concise markers of experience and practice.
         </p>
 
-        {cirtificatesPosts.map((section) => {
+        {certificatesPosts.map((section) => {
           return (
             <Collapsible
               key={section.course}
@@ -122,7 +122,7 @@ const Cirtificates = () => {
               <CollapsibleContent>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {section.posts.map((post) => (
-                  <CirtificateBoxCard key={post.heading} post={post} />
+                  <CertificateBoxCard key={post.heading} post={post} />
                   ))}
                 </div>
               </CollapsibleContent>
@@ -134,5 +134,5 @@ const Cirtificates = () => {
   );
 };
 
-export default Cirtificates;
+export default Certificates;
 
