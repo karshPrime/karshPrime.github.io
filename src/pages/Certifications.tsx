@@ -49,6 +49,12 @@ const certificatesPosts: CourseSection[] = [
         tags: ["Entrepreneurship"],
         link: "https://www.linkedin.com/learning/certificates/7af2c49088aec2698df9b7f4faaca4269d7622de6bd7039a4e086a32cb74fb36?trk=share_certificate",
       },
+      {
+        heading: "Personal Finance Concepts",
+        description: "The course offered an overview of personal finance, covering essential topics such as bank accounts, credit scores, loans, and mortgages, along with tips on managing everyday financial decisions, avoiding banking fees, and improving credit scores.",
+        tags: ["Personal Finance"],
+        link: "https://www.linkedin.com/learning/certificates/a14aa8bc788b71b6dc3663f7f930a7f277e152bb4f385a5477bbe2cadbf56991?u=51091521",
+      },
     ],
   },
 ];
