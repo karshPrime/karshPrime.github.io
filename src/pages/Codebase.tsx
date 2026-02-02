@@ -32,7 +32,7 @@ const codebasePosts: YearSection[] = [
         description:
           "Tool to visualise serial read and record gestures for OpenNetics development.",
         tags: ["Python", "PySlide", "QT", "scipy", "numpy"],
-        link: "https://github.com/OpenNetics/Gesture-Tracker",
+        link: "https://github.com/OpenNetics/Capture-SRM",
       },
     ],
   },
