@@ -167,18 +167,16 @@ const Index = () => {
         <header className="mb-12">
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Futurist. Idealistic. Inspired by Mike Pondsmith's work in the
-            Cyberpunk universe, I envision an open world filled with limitless
-            cyber-capabilities.<i>"More power to the people, to the users,"</i>{" "}
-            is at the core of everything I build, including this website, hosted
-            on a public GitHub repository.
+            Futurist. Idealist. Inspired by Mike Pondsmith’s Cyberpunk universe, I design open
+            systems that put capability back in people’s hands. <i>“More power to the people” </i>
+            guides my work.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            This is my corner of the internet: graduated with a distinction in Engineering Honours, got
-            into America's #1 school for Entrepreneurship, and chose to withdraw to pursue the path
-            of an entrepreneur professionally, with technology at the centre. By day, I work in
-            med-tech, and by night, I dive into my own venture in cybernetics, driven by the vision
-            of creating technology that empowers individualism.
+            This page is my corner on the internet: graduated with a distinction in Engineering
+            Honours, got into America's #1 school for Entrepreneurship, and chose to withdraw to
+            pursue the path of an entrepreneur professionally, with technology at the centre.
+            By day I work at Capgemini Engineering; by night I ship personal projects that simplify
+            everyday life.
           </p>
         </header>
 
@@ -190,7 +188,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="pt-6 border-t border-border/20">
           <div className="flex items-center justify-between text-muted-foreground text-xs font-mono">
-            <span>[https://karsh.me]</span>
+            <span>[https://karsh.page]</span>
             <span className="text-primary/40">◈ ENCRYPTED ◈</span>
           </div>
         </footer>
