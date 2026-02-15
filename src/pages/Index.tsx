@@ -174,11 +174,11 @@ const Index = () => {
             on a public GitHub repository.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            This is my corner of the internet: graduated with a distinction in Engineering Honours, got
-            into America's #1 school for Entrepreneurship, and chose to withdraw to pursue the path
-            of an entrepreneur professionally, with technology at the centre. By day, I work in
-            med-tech, and by night, I dive into my own venture in cybernetics, driven by the vision
-            of creating technology that empowers individualism.
+            This page is my corner on the internet: graduated with a distinction in Engineering
+            Honours, got into America's #1 school for Entrepreneurship, and chose to withdraw to
+            pursue the path of an entrepreneur professionally, with technology at the centre. By
+            day, I am interning at Capgemini Engineering, and by night I work on my personal
+            projects - with the goal of empowering individualism.
           </p>
         </header>
 
@@ -190,7 +190,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="pt-6 border-t border-border/20">
           <div className="flex items-center justify-between text-muted-foreground text-xs font-mono">
-            <span>[https://karsh.me]</span>
+            <span>[https://karsh.page]</span>
             <span className="text-primary/40">◈ ENCRYPTED ◈</span>
           </div>
         </footer>
