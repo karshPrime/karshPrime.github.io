@@ -108,7 +108,7 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
 
   return (
     <>
-      <audio ref={audioRef} src={src} loop preload="auto" />
+      <audio ref={audioRef} src={src} loop preload="metadata" />
       <div
         className="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-2"
         onMouseEnter={() => setIsHovered(true)}
