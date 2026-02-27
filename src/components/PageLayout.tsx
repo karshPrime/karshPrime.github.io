@@ -30,10 +30,9 @@ const PageLayout = ({ title, children, wide = false }: PageLayoutProps) => {
         </Link>
 
         <header className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-2 h-2 bg-primary animate-pulse-glow" />
-            <span className="text-primary/50 font-mono text-xs uppercase tracking-widest">
-              /{title}
+          <div className="mb-4">
+            <span className="text-primary/50 font-mono text-xs tracking-widest">
+              $ print {title.replace(/\s+/g, '_').toLowerCase()}/
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-display uppercase tracking-widest text-primary text-glow-primary">
