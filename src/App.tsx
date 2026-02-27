@@ -1,35 +1,36 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import AudioPlayer from "./components/AudioPlayer";
-import Index from "./pages/Index";
-import Background from "./pages/Background";
-import Codebase from "./pages/Codebase";
-import Community from "./pages/Community";
-import Opennetics from "./pages/Opennetics";
-import Certifications from "./pages/Certifications";
-import Journal from "./pages/Journal";
-import JournalEntry1 from "./pages/JournalEntry1";
-import JournalEntry2 from "./pages/JournalEntry2";
-import Dotfiles from "./pages/Dotfiles";
-import PGP from "./pages/PGP";
-import NotFound from "./pages/NotFound";
+import AssetPreloader from "./components/AssetPreloader";
 import backgroundMusic from "./assets/audio/background-music.mp3";
 
-const queryClient = new QueryClient();
+const Index = lazy(() => import("./pages/Index"));
+const Background = lazy(() => import("./pages/Background"));
+const Codebase = lazy(() => import("./pages/Codebase"));
+const Community = lazy(() => import("./pages/Community"));
+const Opennetics = lazy(() => import("./pages/Opennetics"));
+const Certifications = lazy(() => import("./pages/Certifications"));
+const Journal = lazy(() => import("./pages/Journal"));
+const JournalEntry1 = lazy(() => import("./pages/JournalEntry1"));
+const JournalEntry2 = lazy(() => import("./pages/JournalEntry2"));
+const Dotfiles = lazy(() => import("./pages/Dotfiles"));
+const PGP = lazy(() => import("./pages/PGP"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <AudioPlayer src={backgroundMusic} />
-      <HashRouter>
-        <ScrollToTop />
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <AudioPlayer src={backgroundMusic} />
+    <AssetPreloader />
+    <BrowserRouter>
+      <ScrollToTop />
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/background" element={<Background />} />
@@ -44,9 +45,9 @@ const App = () => (
           <Route path="/pgp" element={<PGP />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </HashRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Suspense>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;
