@@ -40,7 +40,10 @@ const App = () => (
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/heist-aftermath" element={<JournalEntry1 />} />
-          <Route path="/journal/chrome-installation" element={<JournalEntry2 />} />
+          <Route
+            path="/journal/chrome-installation"
+            element={<JournalEntry2 />}
+          />
           <Route path="/dotfiles" element={<Dotfiles />} />
           <Route path="/pgp" element={<PGP />} />
           <Route path="*" element={<NotFound />} />
