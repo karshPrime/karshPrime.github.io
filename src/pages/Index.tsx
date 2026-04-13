@@ -3,20 +3,31 @@ import { useState, useEffect } from "react";
 import MatrixRain from "@/components/MatrixRain";
 
 const personalItems = [
-  { name: "about_me/", description: "summary & background", to: "/background" },
+  {
+    name: "profile/",
+    description: "background, interests, and direction",
+    to: "/background",
+  },
+  {
+    name: "community/",
+    description: "causes, engagement & impact",
+    to: "/community",
+  },
+  {
+    name: "projects/",
+    description: "things I've built and explored",
+    to: "/codebase",
+  },
+  {
+    name: "writing/",
+    description: "observations, ideas, and reflections",
+    to: "/journal",
+  },
   {
     name: "certifications/",
     description: "certificates & licenses",
     to: "/certifications",
   },
-  { name: "community/", description: "engagement & impact", to: "/community" },
-  { name: "journal/", description: "thoughts & writings", to: "/journal" },
-];
-
-const workItems = [
-  { name: "codebase/", description: "projects & development", to: "/codebase" },
-  { name: "opennetics/", description: "current focus", to: "/opennetics" },
-  { name: "dotfiles/", description: "system configurations", to: "/dotfiles" },
 ];
 
 const profileItems = [
@@ -90,7 +101,7 @@ const TerminalHeading = () => {
 const FileTree = () => {
   const renderSection = (
     command: string,
-    items: typeof personalItems | typeof profileItems
+    items: typeof personalItems | typeof profileItems,
   ) => (
     <div className="mb-6">
       <div className="text-muted-foreground mb-2">
@@ -145,9 +156,8 @@ const FileTree = () => {
 
   return (
     <div className="font-mono text-sm">
-      {renderSection("ls ~/Personal_Archive", personalItems)}
-      {renderSection("ls ~/Creative_Dashboard", workItems)}
-      {renderSection("ls ~/Digital_Footprints", profileItems)}
+      {renderSection("ls ~/Archive", personalItems)}
+      {renderSection("ls ~/Footprints", profileItems)}
     </div>
   );
 };
@@ -167,16 +177,17 @@ const Index = () => {
         <header className="mb-12">
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Futurist. Idealist. Inspired by Mike Pondsmith’s Cyberpunk universe, I design open
-            systems that put capability back in people’s hands. <i>“More power to the people” </i>
-            guides my work.
+            Software and systems engineer, with interests in embedded systems,
+            automation, open tools, and assistive technology. This site is
+            simply my page on the internet, a place to keep track of what I'm
+            building, learning, and thinking about.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            This page is my corner on the internet: graduated with a distinction in Engineering
-            Honours, got into America's #1 school for Entrepreneurship, and chose to withdraw to
-            pursue the path of an entrepreneur professionally, with technology at the centre.
-            By day I work at Capgemini Engineering; by night I ship personal projects that simplify
-            everyday life.
+            A lot of that direction was shaped by fiction as much as
+            engineering. Mike Pondsmith's Cyberpunk universe had a real impact
+            on me. It made technology feel human, political, and personal. I focus
+            on tools that reduce dependency on closed systems, mostly: firmware,
+            automation, and open utilities.
           </p>
         </header>
 

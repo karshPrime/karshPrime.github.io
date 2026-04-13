@@ -6,58 +6,10 @@ import img1 from "@/assets/me/7232.jpg";
 import img2 from "@/assets/me/7238.jpg";
 
 const slideshowImages = [img1, img2];
-const timelineEvents = [
-  {
-    year: "January, 2025 - Present",
-    title: "Current Role",
-    description:
-      "Joined as a graduate software engineer at Design+Industry, Melbourne, Australia.",
-  },
-  {
-    year: "July - September, 2025",
-    title: "Grad School",
-    description: "Started and withdrew from Babson College, Boston, USA.",
-  },
-  {
-    year: "July, 2025",
-    title: "Graduated Undergrad",
-    description:
-      "Graduated with Distinction in Engineering Honours from Swinburne University.",
-  },
-  {
-    year: "October, 2024 - June 2025",
-    title: "Honours Work Placement",
-    description:
-      "Worked at Haemograph Pty Ltd as a Research Assistant / Firmware Engineer.",
-  },
-  {
-    year: "July, 2024 - July 2025",
-    title: "Treasurer, Swinburne Greek Club",
-    description:
-      "Elected Treasurer of the University Greek Club, joining the club's executive committee.",
-  },
-  {
-    year: "January - February 2024",
-    title: "Engineering Internship",
-    description: "Interned at Yeme Company as a Software Engineer. Built the website: www.yeme.com.au",
-  },
-  {
-    year: "August - November 2023",
-    title: "In2Science Mentor Volunteer",
-    description:
-      "Volunteered as a Math mentor at Weststall Secondary School. Finalist for Best Communicator.",
-  },
-  {
-    year: "August - November 2022",
-    title: "In2Science Mentor Volunteer",
-    description:
-      "Volunteered as a Math mentor Auburn High School. Nominated for Best Mentor.",
-  },
-];
 
 const Background = () => {
   return (
-    <PageLayout title="About Me">
+    <PageLayout title="Profile">
       <div className="space-y-12">
         {/* Floating slideshow */}
         <div className="float-right ml-6 mb-4 w-48 lg:w-64 xl:w-72">
@@ -66,9 +18,44 @@ const Background = () => {
 
         {/* Introduction */}
         <section>
+          <h2 className="text-2xl font-display uppercase tracking-wider text-primary mb-4">
+            How I think
+          </h2>
           <p className="text-foreground/80 leading-relaxed">
-            I am a dreamer who views the world through the lens of engineering.
-            Motivated by purpose, I was awarded the "Innovator Impact" award at{" "}
+            Building has always been the common thread. What draws me in is the
+            chance to make something useful, thoughtful, and real — whether that
+            is software, firmware, a tool, a system, or an idea that can take
+            shape over time. A lot of my thinking sits around human capability:
+            what technology can make possible, what it should make easier, and
+            what kinds of systems are worth building in the first place. That is
+            why my interests keep circling back to embedded systems, automation,
+            open tools, and assistive technology.
+          </p>
+        </section>
+
+        {/* Academic Path */}
+        <section>
+          <h2 className="text-2xl font-display uppercase tracking-wider text-primary mb-4">
+            Academic Path
+          </h2>
+          <p className="text-foreground/80 leading-relaxed">
+            Engineering was the clearest way for me to learn how to build properly.
+            Studying at{" "}
+            <a
+              href="https://www.swinburne.edu.au/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary hover:underline"
+            >
+              Swinburne University of Technology
+            </a>{" "}
+            gave me the technical discipline I was looking for and trained me to
+            think in systems, work through constraints, and respect the craft
+            behind useful things.
+          </p>
+          <br></br>
+          <p className="text-foreground/80 leading-relaxed">
+            After graduating, I went to{" "}
             <a
               href="https://www.babson.edu/"
               target="_blank"
@@ -77,39 +64,25 @@ const Background = () => {
             >
               Babson College
             </a>{" "}
-            and offered an officer role in the U.S. Marine Corps.
+            to study entrepreneurship. Engineering had taught me how to build;
+            entrepreneurship felt like the right place to think more seriously
+            about what to build. After starting the course, I realised I would
+            learn more about industry by being in it - building, working, and
+            seeing problems up close, rather than stepping away for further
+            coursework. I withdrew to return to engineering work, with the
+            goal of answering the "what to build" question through practice
+            rather than abstraction.
           </p>
         </section>
 
-        {/* About Section */}
+        {/* Building in Practice */}
         <section>
           <h2 className="text-2xl font-display uppercase tracking-wider text-primary mb-4">
-            Personal Pursuits
+            Building in Practice
           </h2>
           <p className="text-foreground/80 leading-relaxed">
-            Discipline drives me, evident as I prepare for a 100 km
-            ultra-marathon. This journey tests my limits, both mentally and
-            physically. Additionally, I received the Vice-Chancellor Excellence
-            Scholarship at{" "}
-            <a
-              href="https://www.swinburne.edu.au/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary hover:underline"
-            >
-              Swinburne University of Technology
-            </a>
-            , from where I graduated with Distinction in Engineering Honours.
-          </p>
-        </section>
-
-        {/* Professional Experience */}
-        <section>
-          <h2 className="text-2xl font-display uppercase tracking-wider text-primary mb-4">
-            Professional Experience
-          </h2>
-          <p className="text-foreground/80 leading-relaxed">
-            My professional journey as a firmware engineer started with {" "}
+            Since graduating, I’ve worked across firmware, software, and
+            product-facing engineering. At{" "}
             <a
               href="https://haemograph.com.au/"
               target="_blank"
@@ -118,66 +91,32 @@ const Background = () => {
             >
               Haemograph,
             </a>{" "}
-            a biotech startup based in Melbourne, where I wrote the firmware for
-            a patented rheometer device. This role sharpened my low-level
-            development skills and familiarised me with the{" "}
-            <a
-              href="https://www.espressif.com/en/products/socs/esp32"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary hover:underline"
-            >
-              ESP32 platform
-            </a>
-            .
-            <br/><br/>
-            Following this, I got a firmware intership at{" "}
+            I worked close to hardware and embedded systems, writing firmware
+            for a patented rheometer device on the ESP32 platform. My current
+            role at{" "}
             <a
               href="https://www.design-industry.com.au"
               target="_blank"
               rel="noreferrer"
               className="text-primary hover:underline"
             >
-              Design+Industry
-           </a>{" "}
-            with Capgemini where I'm currently building myself. 
+              Design+Industry - Part of Capgemini,
+            </a>{" "}
+            is helping me keep building in the real world and grow into the kind
+            of engineer I want to become. Earlier on, I also interned at Yeme,
+            where I worked on web and product-facing development.
           </p>
-        </section>
-
-        {/* Clear float before timeline */}
-        <div className="clear-both" />
-
-        {/* Timeline */}
-        <section>
-          <h2 className="text-2xl font-display uppercase tracking-wider text-primary mb-8">
-            Professional Timeline
-          </h2>
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 top-0 bottom-0 w-px bg-primary/20" />
-
-            <div className="space-y-8">
-              {timelineEvents.map((event, index) => (
-                <div key={index} className="relative pl-12">
-                  {/* Timeline dot */}
-                  <div className="absolute left-2.5 top-1.5 w-3 h-3 bg-primary rounded-full border-2 border-background" />
-
-                  {/* Year badge */}
-                  <span className="inline-block text-xs font-mono text-primary/60 bg-primary/10 px-2 py-0.5 rounded mb-2">
-                    {event.year}
-                  </span>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-display uppercase tracking-wide text-primary/90 mb-1">
-                    {event.title}
-                  </h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed">
-                    {event.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <br></br>
+          <p className="text-foreground/80 leading-relaxed">
+            Outside work, in the past, I’ve volunteered as a maths mentor through
+            In2Science, helped run student communities, served as Treasurer of the
+            Swinburne Hellenic Society, and earlier took part in Round Square
+            eye-camp work. During the COVID years at university, I also started 
+            Sweebs as a way to help students connect when campus life felt distant
+            and fragmented. Across all of that, the common thread has been the same:
+            building things is rewarding, but helping build communities matters
+            just as much.
+          </p>
         </section>
       </div>
     </PageLayout>

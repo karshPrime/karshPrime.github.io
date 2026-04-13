@@ -39,9 +39,12 @@ const App = () => (
           <Route path="/opennetics" element={<Opennetics />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/journal" element={<Journal />} />
-          <Route path="/journal/heist-aftermath" element={<JournalEntry1 />} />
           <Route
-            path="/journal/chrome-installation"
+            path="/writing/withdrawing-from-grad-school"
+            element={<JournalEntry1 />}
+          />
+          <Route
+            path="/writing/automation-and-purpose"
             element={<JournalEntry2 />}
           />
           <Route path="/dotfiles" element={<Dotfiles />} />

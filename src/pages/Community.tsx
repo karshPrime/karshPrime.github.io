@@ -24,8 +24,9 @@ const samplePosts = [
     id: 1,
     heading: "Swinburne Hellenic Society",
     paragraph: [
-      "Having a passion for exploring new cultures and traditions, I was an active member of the University Greek Club during my final years at university. I progressed from a general member to general committee member to executive committee as the Treasurer. Despite not having a Greek background, I was entrusted by the community to hold this title and fulfil the associated responsibilities.",
-      "During my time as Treasurer, I contributed to organising events, managing club finances, and promoting Greek culture within the university. This opportunity allowed me to meet many wonderful individuals, not just from my university but from across Melbourne, as our club is affiliated with NUGAS (National Union of Greek Australian Students). I had an incredible time learning about Greek culture and embraced every opportunity to enjoy Souvlaki.",
+      "I joined the Swinburne Hellenic Society in the final years of university out of a genuine interest in culture, community, and meeting people outside my usual circles. Over time, I moved from being a general member to the committee, and eventually served as Treasurer. Being trusted with that role, despite not coming from a Greek background, meant a lot to me.",
+      "The club gave me more than just events to help organise. It gave me a sense of how much community is built through small, consistent effort - showing up, helping things run well, and making people feel welcome. Through the society and its connection to NUGAS, I met people from across Melbourne and had the chance to learn from a culture that was not originally my own, which made the experience even more meaningful.",
+      "What stayed with me most was the warmth of it all. It was one of those experiences that reminded me that community is not always built through big ideas. Often it comes from shared meals, regular effort, and people who genuinely care about keeping something alive.",
     ],
     images: [imgGreekClub1, imgGreekClub2, imgGreekClub3, imgGreekClub4],
   },
@@ -33,8 +34,9 @@ const samplePosts = [
     id: 2,
     heading: "In2Science",
     paragraph: [
-      "I have always been passionate about math and I believe that anyone can engage with it given the right guidance. This belief motivated me to volunteer as a maths mentor with the In2Science programme in 2022 and 2023. I worked with Year 10 students, helping them grasp mathematical concepts and providing insight into what it's like to study STEM at university.",
-      'Many people are put off by math because they perceive it as merely a "subject of numbers," which I find quite unfortunate. When viewed as a "language of logic," it becomes significantly more engaging. I have tried to share this perspective with my students, and it has been rewarding to witness their growing enjoyment of the language. Additionally, it was lovely to be nominated for Best Mentor in 2022 and to be a finalist for Best Communicator in 2023.',
+      "I volunteered with In2Science in 2022 and 2023 as a maths mentor, working with Year 10 students and helping them build confidence around ideas that often feel more intimidating than they need to be. Maths has always mattered to me, not just as a subject, but as a way of thinking clearly and making sense of the world.",
+      "A lot of students grow up seeing maths as something dry or inaccessible. In contrast, to me, it is closer to a language of logic than a collection of rules, and that shift in perspective can make a real difference. Mentoring gave me the chance to share that view and help students see that STEM is not reserved for a certain type of person.",
+      "I was nominated for Best Mentor and recognised as a finalist for Best Communicator during my two years with In2Science.",
     ],
     images: [imgIn2Science1, imgIn2Science2, imgIn2Science3],
   },
@@ -42,9 +44,9 @@ const samplePosts = [
     id: 3,
     heading: "Sweebs Club",
     paragraph: [
-      "Starting university during COVID was rather disappointing, particularly as the first year is typically a time for meeting new people. However, with online classes and limited socialising, I was determined not to miss out on the opportunity. Consequently, I decided to start a new uni club called Sweebs, which focused on Asian animated entertainment, including Japanese and Korean comics, cartoons, and music.",
-      "As I began this venture, I realised that the club could be more than just a niche interest group. I recognised that all university students were likely seeking ways to connect with one another, even while we were confined to online interactions. Therefore, I shifted the focus to creating a social space for students to gather and network.",
-      'This approach proved to be highly successful, and we grew to over 400 members in just a few months. It became one of the largest university clubs at the time, and it was wonderful to see individuals from across the university coming together. I also initiated an "all committee community" to encourage collaboration among different clubs for events. It was a straightforward idea, but it turned out to be a significant success, with representatives from over 20 clubs participating and working together within just a month—that was, for as long as I was in charge.',
+      "I started Sweebs during the COVID years at university, when a lot of student life felt distant and half-formed. The original idea was simple: a space built around shared interest in Asian animated media, including Japanese and Korean comics, animation, and music. But very quickly it became clear that the real need was not just for a niche club — it was for connection.",
+      "As things grew, the club became more of a social space than a fandom space. Students from across the university were looking for somewhere to meet people, talk, and feel part of something while so much of university life was still happening at a distance. Within a few months, Sweebs had grown to more than 400 members and became one of the larger student communities on campus at the time.",
+      "What mattered most to me was not the size of the club, but what it represented. It showed me that even a simple idea can become meaningful if it answers the right need. I also started an all-committee community to help clubs collaborate more easily, which quickly brought together representatives from more than 20 societies. Looking back, that period taught me a lot about building things for people: if you pay attention to what is missing, even a small initiative can create real momentum.",
     ],
     images: [],
   },
@@ -52,9 +54,9 @@ const samplePosts = [
     id: 4,
     heading: "Round Square: Eye Camp",
     paragraph: [
-      "In my final year of high school, I participated in a volunteer programme organised by Round Square, which involved travelling to underprivileged areas in India. Our mission was to raise awareness about eye health and provide free eye tests and glasses to those in need. Prior to our work, we received training from professionals on how to conduct eye tests, which was an invaluable experience in itself.",
-      "It was eye-opening to witness how many individuals were struggling with blurry vision, often unaware that it was a treatable condition. We were able to make a significant difference by offering free eye tests and glasses to those who required them. It was a deeply rewarding experience that has stayed with me.",
-      "The programme was a tremendous success, garnering considerable local attention and media coverage. Local news agencies even came to document our efforts, and I was fortunate enough to be featured in one of the articles. Below is a section from the local newspaper that highlights our experience.",
+      "In my final year of high school, I took part in a Round Square volunteer programme in India focused on eye health in under-served communities. Before the trip, we were trained by professionals to carry out basic eye tests, and once there we helped raise awareness, assess vision, and provide glasses to people who otherwise had little access to that kind of care.",
+      "What stayed with me was how many people had been living with poor vision without realising that their situation could be improved so simply. Watching something as ordinary as a basic eye test make such an immediate difference was deeply affecting. It was a reminder that meaningful service is not always complicated. Sometimes it is practical, direct, and quietly life-changing.",
+      "The programme also received local media attention, which was unexpected, but the lasting value of the experience was much more personal. It gave me an early sense of what it means to contribute to something larger than yourself, and that idea has stayed with me ever since.",
     ],
     images: [
       imgRoundSquare1,
@@ -158,8 +160,9 @@ const Community = () => {
     <PageLayout title="community">
       <div className="space-y-8">
         <p className="text-foreground/70">
-          Building bridges, sharing knowledge, and fostering growth within the
-          community.
+          A lot of the most meaningful parts of my life so far have happened
+          around people — mentoring, organising, volunteering, and helping make
+          communities feel more alive.
         </p>
 
         <div className="mt-8">

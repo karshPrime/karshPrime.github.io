@@ -54,8 +54,8 @@ export const routePreloadBatches: RoutePreloadBatch[] = [
   { path: "/opennetics", loadImages: loadOpenneticsImages },
   { path: "/certifications", loadImages: loadNoImages },
   { path: "/journal", loadImages: loadNoImages },
-  { path: "/journal/heist-aftermath", loadImages: loadNoImages },
-  { path: "/journal/chrome-installation", loadImages: loadNoImages },
+  { path: "/writing/automation-and-purpose", loadImages: loadNoImages },
+  { path: "/writing/withdrawing-from-grad-school", loadImages: loadNoImages },
   { path: "/dotfiles", loadImages: loadNoImages },
   { path: "/pgp", loadImages: loadNoImages },
 ];

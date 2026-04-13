@@ -1,17 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
     <title>karshPrime</title>
-    <meta name="description" content="Engineer. Innovator. Futurist." />
+    <meta
+      name="description"
+      content="Engineer. Builder. Curious about what technology should make possible."
+    />
     <meta name="author" content="karshPrime" />
     <meta name="theme-color" content="#facc15" />
 
     <meta property="og:title" content="karsh cyberspace" />
     <meta
       property="og:description"
-      content="A corner illuminating insights of passion and creativity in digital realm."
+      content="Engineer drawn to open systems, human capability, and the future we choose to build."
     />
     <meta property="og:image" content="/banner.png" />
   </head>
@@ -27,7 +33,11 @@
             .map((s) => s.replace(/~and~/g, "&"))
             .join("?");
 
-          window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+          window.history.replaceState(
+            null,
+            "",
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
         }
       })(window.location);
     </script>
